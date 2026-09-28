@@ -27,26 +27,6 @@ Portfolio personnel bilingue (FR/EN) avec thèmes clair/sombre : présentation, 
 
 React 18, React Router, Framer Motion, i18n maison (FR/EN), React App, GitHub Pages.
 
-## Démarrage
-
-```bash
-cd my-portfolio
-npm install
-npm start
-```
-
-```bash
-npm run build   # build de production
-npm run deploy  # publication GitHub Pages (branche gh-pages)
-```
-
-## Structure
-
-- `src/pages/` : accueil, portfolio (+ détail projet), formation, expérience, compétences, contact
-- `src/components/` : carrousel, visionneuse, navigation, formulaire, icônes
-- `src/_data/` : projets, formation, expérience, compétences (JSON bilingues)
-- `public/projectImages/` : captures des projets
-
 ## Contact
 
 - GitHub : [Boualem234](https://github.com/Boualem234)
