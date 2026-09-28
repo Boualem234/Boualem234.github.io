@@ -1,0 +1,44 @@
+[
+  {
+    "role_fr": "Stagiaire Développeur Full Stack",
+    "role_en": "Full Stack Developer Intern",
+    "company": "WOOGMA",
+    "location_fr": "Châtelet, Belgique",
+    "location_en": "Châtelet, Belgium",
+    "period_fr": "Fév. 2026 - Mai 2026",
+    "period_en": "Feb. 2026 - May 2026",
+    "projectSlug": "suivi-atelier-auem",
+    "bullets_fr": [
+      "Numérisation complète du suivi d'atelier pour AUEM : application web (Django, HTMX, Tabler) remplaçant les fiches papier par un système temps réel de scan de codes-barres.",
+      "Architecture d'intégration & API : API REST avec Django Ninja pour synchroniser les commandes depuis AUEM Order, modélisation relationnelle avancée (PostgreSQL) et dédoublonnage.",
+      "Pilotage de production & DataViz : tableau de bord (Chart.js), suivi des retards, planning interactif (FullCalendar).",
+      "Parcours utilisateur optimisé : tunnel de commande guidé en 4 étapes (HTMX) et sécurisation des statuts des OF.",
+      "DevOps & bonnes pratiques : Docker (uv), CI/CD via Coolify, stockage OVH S3, Sentry, équipe Agile Scrum."
+    ],
+    "bullets_en": [
+      "Full digitization of AUEM workshop tracking: web app (Django, HTMX, Tabler) replacing paper sheets with real-time barcode scanning.",
+      "Integration & API architecture: REST API with Django Ninja to sync orders from AUEM Order, advanced relational modeling (PostgreSQL) and deduplication.",
+      "Production steering & DataViz: dashboard (Chart.js), late-delivery tracking, interactive planning (FullCalendar).",
+      "Optimized user flow: 4-step guided order tunnel (HTMX) and secured manufacturing order statuses.",
+      "DevOps & best practices: Docker (uv), CI/CD via Coolify, OVH S3 storage, Sentry, Agile Scrum team."
+    ]
+  },
+  {
+    "role_fr": "Job étudiant",
+    "role_en": "Student job",
+    "company": "Colruyt Dampremy",
+    "location_fr": "Dampremy, Belgique",
+    "location_en": "Dampremy, Belgium",
+    "period_fr": "2022 - 2025",
+    "period_en": "2022 - 2025",
+    "projectSlug": null,
+    "bullets_fr": [
+      "Polyvalence en magasin : réassort, caisse et service client.",
+      "Rigueur, ponctualité et travail en équipe."
+    ],
+    "bullets_en": [
+      "Versatile store support: restocking, checkout and customer service.",
+      "Reliability, punctuality and teamwork."
+    ]
+  }
+]

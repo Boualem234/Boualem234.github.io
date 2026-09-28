@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import ProjectList from "../../components/ProjectList";
 import Footer from "../../components/Footer";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 /**
  * Represents the Portfolio page component.
@@ -14,6 +15,7 @@ import Footer from "../../components/Footer";
 const Portfolio = () => {
   // Get the current location using React Router's useLocation hook
   const location = useLocation();
+  const { t } = useLanguage();
 
   // Scroll to the top of the page when the location changes
   useEffect(() => {
@@ -25,7 +27,7 @@ const Portfolio = () => {
       {/* Main Portfolio Page */}
       <main className="portfolio container">
         {/* Display the page header */}
-        <PageHeader title="Portfolio" description="View my work" />
+        <PageHeader title={t.portfolioPage.title} description={t.portfolioPage.description} />
 
         <div className="row">
           {/* Display the list of projects */}

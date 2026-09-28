@@ -1,5 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { useLanguage } from "../i18n/LanguageContext";
 
 /**
  * Represents the contact information section.
@@ -12,6 +13,7 @@ import { motion } from "framer-motion";
  */
 
 const ContactInfo = ({ name, email, location }) => {
+  const { t } = useLanguage();
   // Using react-intersection-observer to determine if the component is in view
   const [ref, inView] = useInView({
     threshold: 0,
@@ -28,9 +30,9 @@ const ContactInfo = ({ name, email, location }) => {
       animate={inView ? { y: 0, opacity: 1 } : { y: "10vw", opacity: 0 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
-      <h4 className="contentTitle">Connect With Me</h4>
+      <h4 className="contentTitle">{t.contactInfo.title}</h4>
       <p className="infoDescription">
-        Looking to build connections and share perspectives with talented developers working to create positive change.
+        {t.contactInfo.description}
       </p>
       <ul className="listInfo">
         {/* Display Name */}
@@ -41,7 +43,7 @@ const ContactInfo = ({ name, email, location }) => {
               <i className="icon fa-solid fa-user"></i>{" "}
             </span>
             <div className="mediaWrap">
-              <h6 className="infoType">Name</h6>
+              <h6 className="infoType">{t.contactInfo.name}</h6>
               <span className="infoValue">{name}</span>
             </div>
           </div>
@@ -54,7 +56,7 @@ const ContactInfo = ({ name, email, location }) => {
               <i className="icon fa-solid fa-location-pin "></i>{" "}
             </span>
             <div className="mediaWrap">
-              <h6 className="infoType">Location</h6>
+              <h6 className="infoType">{t.contactInfo.location}</h6>
               <span className="infoValue">{location}</span>
             </div>
           </div>
@@ -67,7 +69,7 @@ const ContactInfo = ({ name, email, location }) => {
               <i className="icon fa-solid fa-envelope "></i>{" "}
             </span>
             <div className="mediaWrap">
-              <h6 className="infoType">Email</h6>
+              <h6 className="infoType">{t.contactInfo.email}</h6>
               {/* Link to email */}
               <span className="infoValue">
                 <a href={`mailto:${email}`}>{email}</a>

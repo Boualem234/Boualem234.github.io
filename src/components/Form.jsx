@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import validator from "email-validator";
 import Button from "./Button";
+import { useLanguage } from "../i18n/LanguageContext";
 
 /**
  * Contact Form Component
@@ -23,6 +24,7 @@ import Button from "./Button";
  */
 
 const Form = () => {
+  const { t } = useLanguage();
   const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: true,
@@ -121,9 +123,8 @@ const Form = () => {
           setSuccess(false);
         }, 3000);
       })
-      .catch((err) => {
+      .catch(() => {
         // Form submission failed
-        console.log(err);
         setSending(false);
         setFailed(true);
       });
@@ -132,13 +133,13 @@ const Form = () => {
   // Determine button text based on status
   const handleButtonText = () => {
     if (sending) {
-      return "Please wait...";
+      return t.form.sending;
     } else if (success) {
-      return "Message Sent";
+      return t.form.sent;
     } else if (failed || nameError || messageError || emailError || subjectError) {
-      return "Try again";
+      return t.form.retry;
     } else {
-      return "Send Message";
+      return t.form.send;
     }
   };
 
@@ -152,9 +153,9 @@ const Form = () => {
       transition={{ duration: 0.4, ease: "easeInOut" }}
       onSubmit={handleSubmit}
     >
-      <h4 className="contentTitle">Send a Message</h4>
+      <h4 className="contentTitle">{t.form.title}</h4>
       {/* Input fields */}
-      <div className="col-12 col-md-6 formGroup" style={{ display: "inline-block" }}>
+      <div className="col-12 col-md-6 formGroup">
         <input
           type="text"
           className={`formControl ${nameError ? "formError" : ""}`}
@@ -165,11 +166,11 @@ const Form = () => {
           value={formData.name}
           id="contactName"
           name="name"
-          placeholder={`${nameError ? "Please enter your name" : "Name"}`}
+          placeholder={`${nameError ? t.form.nameError : t.form.name}`}
           autoComplete="name"
         />
       </div>
-      <div className="col-12 col-md-6 formGroup" style={{ display: "inline-block" }}>
+      <div className="col-12 col-md-6 formGroup">
         <input
           type="text"
           className={`formControl ${emailError ? "formError" : ""}`}
@@ -180,7 +181,7 @@ const Form = () => {
           value={formData.email}
           id="contactEmail"
           name="email"
-          placeholder={`${emailError ? "Please enter a valid email" : "Email"}`}
+          placeholder={`${emailError ? t.form.emailError : t.form.email}`}
           autoComplete="email"
         />
       </div>
@@ -195,7 +196,7 @@ const Form = () => {
           value={formData.subject}
           id="contactSubject"
           name="subject"
-          placeholder={`${subjectError ? "Please enter a subject" : "Subject"}`}
+          placeholder={`${subjectError ? t.form.subjectError : t.form.subject}`}
           autoComplete="off"
         />
       </div>
@@ -210,7 +211,7 @@ const Form = () => {
           name="message"
           id="contactMessage"
           rows="5"
-          placeholder={`${messageError ? "Please enter a message" : "Message"}`}
+          placeholder={`${messageError ? t.form.messageError : t.form.message}`}
           autoComplete="off"
         ></textarea>
       </div>

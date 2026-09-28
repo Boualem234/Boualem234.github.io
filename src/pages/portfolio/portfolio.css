@@ -4,28 +4,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow-x: clip;
   margin-top: var(--spacing);
 }
 
 .projectCard {
-  color: white;
-  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-color);
+  border-radius: 12px;
+  background: linear-gradient(45deg, var(--card-bg-1) 0%, var(--card-bg-2) 60%, var(--card-bg-3) 100%);
+  border: 1px solid var(--card-border, transparent);
+  box-shadow: var(--card-shadow);
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
   transition: all 0.5s ease-in-out;
-  flex-direction: column;
-  padding: 0 !important;
+  padding: clamp(16px, 4vw, 30px);
   cursor: pointer;
 }
 
-.row {
-  padding: 0;
-  margin: 0;
+.portfolio .row {
+  width: 100%;
 }
 
 .textWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   transition: all 0.9s ease-in-out;
   z-index: 1;
 }
@@ -35,15 +47,30 @@
   display: inline-block;
 }
 
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .imageContainer img {
-  height: 12em;
-  margin-top: 25px;
+  max-width: 100%;
+  height: auto;
+  max-height: 220px;
+  margin-top: 12px;
+  object-fit: contain;
   transition: all 1.3s ease-in-out;
 }
 
 .tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
   font-size: 12px;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .viewWork {
@@ -55,43 +82,18 @@
   padding: 10px 0;
 }
 
-.projectCard::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 0.3;
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* .closeModal {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-}
-
-.closeModal:hover {
-  filter: brightness(100);
-} */
-
-/* .modalTitle {
-  text-align: left;
-  margin-bottom: var(--sm-spacing);
-  color: white;
-  white-space: nowrap;
-  font-size: 30px;
-} */
-
 .projectDetails {
   background-color: var(--bg2-color);
+  border: 1px solid var(--card-border, transparent);
+  border-radius: 12px;
   text-align: center;
-  padding: var(--spacing) 10px;
+  padding: 24px 16px;
   margin: 0;
   margin-bottom: var(--spacing);
+}
+
+.projectBodyContainer {
+  padding: 0 8px;
 }
 
 .projectImage {
@@ -100,9 +102,11 @@
 }
 
 .projectBody {
-  line-height: 2;
+  line-height: 1.7;
   text-align: left;
-  color: var(--secondary-text-color);
+  color: var(--text-color);
+  font-size: 15px;
+  max-width: 68ch;
 }
 
 .tech {
@@ -112,41 +116,22 @@
 
 .paragraph {
   margin-bottom: 1em;
-}
-
-/* .modalBtns {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.modalBtns .btn {
-  display: flex;
-  flex-direction: column;
-  height: 50px;
-  width: 200px;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-}
-
-.modalBtns .btn:last-child {
-  background-color: white;
-  color: black;
-  margin-left: 10px;
-}
-
-.modalBtns .btn:last-child:hover {
-  background-color: var(--hl-color);
   color: var(--text-color);
-} */
+}
 
 .technology {
-  background-color: #4ea6a027;
-  margin-right: 5px;
-  padding: 5px 10px;
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+  background-color: var(--tech-bg, #00b89427);
+  border: 1px solid var(--hl-color);
+  margin-right: 0;
+  padding: 6px 12px;
   border-radius: 20px;
-  color: var(--hl-color);
+  color: var(--tech-text, var(--hl-color));
+  font-weight: 600;
 }
 
 /* --- MEDIA QUEIRES --- */
@@ -154,33 +139,24 @@
 @media (min-width: 750px) {
   .projectCard {
     flex-direction: row;
-    padding: var(--sm-spacing) !important;
-    height: 350px;
+    padding: var(--sm-spacing);
+    min-height: 350px;
   }
 
-  .imageContainer {
-    transform: translateX(30%);
-    transition: all 0.3s ease-in-out;
+  .projectLink {
+    width: 100%;
   }
 
-  .projectCard:hover .imageContainer {
-    transform: translateX(-70%);
-  }
-
-  .projectCard:hover .textWrap {
-    transform: translateX(-250%);
-  }
-
-  .projectCard:hover::before {
-    opacity: 0;
+  .projectCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   }
 
   .projectCard:hover .imageContainer img {
-    scale: 1.4;
+    scale: 1.06;
   }
 
   .imageContainer {
-    transform: translateX(30%);
     transition: all 0.3s ease-in-out;
   }
 
@@ -215,4 +191,341 @@
   .projectBodyContainer {
     padding: 0 var(--spacing);
   }
+}
+
+/* --- CAROUSEL (stable, lisible) --- */
+.carousel {
+  width: 100%;
+}
+
+.carouselMain {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  padding: 0;
+  cursor: zoom-in;
+}
+
+@media (max-width: 749px) {
+  .carouselMain {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+button.carouselMain:focus-visible {
+  outline: 3px solid var(--hl-color);
+  outline-offset: 2px;
+}
+
+.carouselMain .imgWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.carouselMain img {
+  border-radius: 12px;
+}
+
+.imgSpinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carouselZoomHint {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(14, 21, 19, 0.75);
+  color: var(--text-color);
+  border: 1px solid var(--hl-color);
+  font-size: 16px;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.carouselBtn {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--hl-color);
+  background: var(--bg2-color);
+  color: var(--text-color);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carouselBtn:hover {
+  background: var(--btn-bg, var(--hl2-color));
+  border-color: var(--btn-bg, var(--hl2-color));
+  color: var(--btn-text, #fff);
+}
+
+.carouselCounter {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: var(--bg2-color);
+  color: var(--text-color);
+  border: 1px solid var(--hl-color);
+  border-radius: 20px;
+  padding: 6px 14px;
+  white-space: nowrap;
+}
+
+/* --- LIGHTBOX --- */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(5, 10, 8, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightboxContent {
+  position: relative;
+  width: min(1100px, 94vw);
+  margin: 0;
+}
+
+.lightboxZoomWrap {
+  width: 100%;
+  height: min(70vh, 640px);
+  height: min(70dvh, 640px);
+  min-height: 280px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e1513;
+  border-radius: 12px;
+  touch-action: none;
+  user-select: none;
+}
+
+.lightboxImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  background: #0e1513;
+  will-change: transform;
+}
+
+.lightboxToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.lightboxZoomControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lightboxToolBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--hl-color);
+  background: rgba(14, 21, 19, 0.85);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightboxToolBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.lightboxToolBtn:not(:disabled):hover {
+  background: var(--btn-bg, var(--hl2-color));
+  border-color: var(--btn-bg, var(--hl2-color));
+}
+
+.lightboxZoomLevel {
+  min-width: 64px;
+  height: 44px;
+  border-radius: 22px;
+  border: 1px solid var(--hl-color);
+  background: rgba(14, 21, 19, 0.85);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.lightboxCounter {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.lightboxHint {
+  display: none;
+}
+
+@media (max-width: 749px) {
+  .lightboxZoomWrap {
+    height: 52vh;
+    min-height: 240px;
+  }
+}
+
+.lightboxClose,
+.lightboxNav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--hl-color);
+  background: rgba(14, 21, 19, 0.85);
+  color: #fff;
+  cursor: pointer;
+}
+
+.lightboxClose {
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+}
+
+.lightboxNav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+
+.lightboxPrev {
+  left: 8px;
+}
+
+.lightboxNext {
+  right: 8px;
+}
+
+@media (min-width: 750px) {
+  .lightboxPrev {
+    left: -16px;
+  }
+
+  .lightboxNext {
+    right: -16px;
+  }
+}
+
+.lightboxClose:hover,
+.lightboxNav:hover {
+  background: var(--btn-bg, var(--hl2-color));
+  border-color: var(--btn-bg, var(--hl2-color));
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.carouselDot {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.carouselDot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--hl-color);
+  background: transparent;
+}
+
+.carouselDot.active::after {
+  background: var(--hl-color);
+}
+
+.carouselThumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.carouselThumb {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex: 0 0 72px;
+  height: 48px;
+  opacity: 0.6;
+}
+
+.carouselThumb.active {
+  border-color: var(--hl-color);
+  opacity: 1;
+}
+
+.carouselThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }

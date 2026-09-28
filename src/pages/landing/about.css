@@ -8,8 +8,11 @@
 }
 
 .aboutContainer {
-  background-color: var(--bg2-color);
+  background: linear-gradient(45deg, var(--card-bg-1) 0%, var(--card-bg-2) 60%, var(--card-bg-3) 100%);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
   padding: var(--spacing) 0;
+  margin-bottom: var(--spacing);
 }
 
 .personalImage {
@@ -19,13 +22,15 @@
 }
 
 .personalImage img {
-  height: 250px;
+  width: min(250px, 80vw);
+  height: min(250px, 80vw);
   z-index: 50;
-  border-radius: 250px;
-  border: 1px solid var(--hl2-color);
-  opacity: 0.5;
-  padding: 10px;
-  filter: contrast(1.2);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--hl2-color);
+  opacity: 1;
+  padding: 6px;
+  filter: contrast(1.05);
 }
 
 .contentContainer {
@@ -102,14 +107,13 @@
 
 @media (min-width: 992px) {
   .personalImage img {
-    height: 430px;
+    width: 340px;
+    height: 340px;
     z-index: 50;
-    /* border-radius: 0; */
   }
 
   .personalImage {
     margin: auto 0;
-    height: 430px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -12,43 +12,54 @@ import { useState } from "react";
  * @param {string} opacity - The opacity of the image.
  */
 
-export default function Image({ src, height, width, size, alt, opacity }) {
+export default function Image({ src, height, width, size, alt, opacity, objectFit = "contain" }) {
   // State to manage image loading status
   const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
   return (
     <div
+      className="imgWrap"
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         width: width ? width : "100%",
         height: height ? height : "100%",
+        position: "relative",
       }}
     >
       {/* Image */}
-      <img
-        src={src}
-        className="fadeIn"
-        style={{
-          display: loading ? "none" : "block",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: opacity ? opacity : "1",
-        }}
-        onLoad={(e) => {
-          setLoading(false); // Set loading to false when the image is loaded
-        }}
-        alt={alt} // Alt text for the image
-      />
+      {!failed && (
+        <img
+          src={src}
+          className="fadeIn"
+          loading="lazy"
+          style={{
+            visibility: loading ? "hidden" : "visible",
+            width: "100%",
+            height: "100%",
+            objectFit,
+            opacity: opacity ? opacity : "1",
+          }}
+          onLoad={() => {
+            setLoading(false); // Set loading to false when the image is loaded
+          }}
+          onError={() => {
+            setFailed(true);
+            setLoading(false);
+          }}
+          alt={alt} // Alt text for the image
+        />
+      )}
       {/* Loading spinner */}
-      <div
-        className="spinner"
-        style={{
-          display: loading ? "block" : "none",
-          fontSize: size ? size : "24px",
-        }}
-      ></div>
+      {loading && !failed && (
+        <div
+          className="spinner imgSpinner"
+          style={{
+            fontSize: size ? size : "24px",
+          }}
+        ></div>
+      )}
     </div>
   );
 }

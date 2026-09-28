@@ -1,54 +1,42 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "./Image";
+import { useLanguage } from "../i18n/LanguageContext";
 
 /**
  * Represents a project card component.
  *
+ * Gentle entrance on page load (staggered, no scroll dependency):
+ * all projects visible at once.
+ * Layout handled by portfolio.css (no Bootstrap utilities dependency).
+ *
  * @component
  * @param {string} title - The title of the project.
  * @param {string} image - The image source for the project thumbnail.
- * @param {string} color - The background color of the project card.
  * @param {number} id - The unique identifier of the project.
+ * @param {number} index - The position in the list (stagger delay).
  */
 
-const ProjectCard = ({ title, image, color, id }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const variants = {
-    hidden: { y: "10vw", opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  };
+const ProjectCard = ({ title, image, id, slug, index = 0 }) => {
+  const { lang } = useLanguage();
 
   return (
-    <Link to={`/portfolio/${title.toLowerCase()}`} key={id} className="projectLink col-12 col-lg-6">
+    <Link to={`/portfolio/${slug || title.toLowerCase()}`} key={id} className="projectLink col-12 col-lg-4">
       <motion.div
-        ref={ref}
-        className=""
-        variants={variants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="projectCard"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: Math.min(index, 8) * 0.07, ease: "easeOut" }}
       >
-        <div
-          style={{ backgroundColor: color }}
-          className="projectCard d-flex align-items-center justify-content-center p-5"
-          onClick={() => {}}
-        >
-          <div className="textWrap col-6 d-flex flex-column justify-content-center align-items-center m-5">
-            <h3 className="projectTitle">{title}</h3>
-            <span className="viewWork">
-              View Work <FiArrowUpRight />
-            </span>
-          </div>
-          <div className="imageContainer col-6 d-flex align-items-center justify-content-center">
-            <Image src={image} alt="Laptop displaying the application" />
-          </div>
+        <div className="textWrap">
+          <h3 className="projectTitle">{title}</h3>
+          <span className="viewWork">
+            {lang === "fr" ? "Voir" : "View Work"} <FiArrowUpRight />
+          </span>
+        </div>
+        <div className="imageContainer">
+          <Image src={image} alt="Laptop displaying the application" />
         </div>
       </motion.div>
     </Link>

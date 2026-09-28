@@ -1,0 +1,22 @@
+[
+  {
+    "title_fr": "Back-end & APIs",
+    "title_en": "Back-end & APIs",
+    "skills": ["Python (Django, Django Ninja)", "C# (ASP.NET Core)", "API REST", "Huey"]
+  },
+  {
+    "title_fr": "Front-end & DataViz",
+    "title_en": "Front-end & DataViz",
+    "skills": ["JavaScript", "HTMX", "Blazor", "Chart.js", "Tabler / Bootstrap", "FullCalendar"]
+  },
+  {
+    "title_fr": "Bases de données & Conception",
+    "title_en": "Databases & Design",
+    "skills": ["PostgreSQL", "MySQL", "SQL Server", "Modélisation relationnelle", "MVC / MVVM / MVT"]
+  },
+  {
+    "title_fr": "Cloud, DevOps & Méthodes",
+    "title_en": "Cloud, DevOps & Methods",
+    "skills": ["Docker", "Coolify", "Stockage S3 (OVHcloud)", "Sentry", "CI/CD", "GitFlow", "Agile (Scrum)"]
+  }
+]

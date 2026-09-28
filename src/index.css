@@ -1,14 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
-/* --- VARIABLES --- */
+/* --- VARIABLES (contraste AA clair/sombre) --- */
 :root {
-  --bg-color: #131a22;
-  --bg2-color: #232f3e19;
-  --hl-color: #48a3c6;
-  --hl2-color: #ea5b5c;
-  --text-color: #f3f3f3;
-  --secondary-text-color: #999999;
-  --grey: #9f9f9f76;
+  --bg-color: #0e1513;
+  --bg2-color: #16211c;
+  --hl-color: #00b894;
+  --hl2-color: #16a085;
+  --text-color: #f2f7f4;
+  --secondary-text-color: #b9c9c0;
+  --grey: #b9c9c0;
+  --hero-shadow: 1px 1px 3px #000;
+  --card-bg-1: #1c2b24;
+  --card-bg-2: #14201b;
+  --card-bg-3: #0e1513;
+  --card-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.35);
+  --card-border: transparent;
+  --btn-bg: #00b894;
+  --btn-bg-hover: #26d1ab;
+  --btn-text: #06281f;
+  --tech-bg: #00b89422;
+  --tech-text: #4fe0b5;
   --spacing: 50px;
   --sm-spacing: 30px;
 }
@@ -56,30 +67,53 @@ body,
 #root {
   height: 100%;
   background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+.container {
+  padding-inline: 16px;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(0, 184, 148, 0.08), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(0, 184, 148, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 184, 148, 0.07), transparent 42%),
+    radial-gradient(circle at 8% 88%, rgba(0, 184, 148, 0.05), transparent 40%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+p,
+li {
+  line-height: 1.7;
 }
 
 /* --- GLOBAL STYLES --- */
 
 ::selection {
-  background-color: var(--hl-color);
-  color: var(--text-color);
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
 }
 .pageTitle {
   color: var(--text-color);
-  font-size: 36px;
+  font-size: clamp(28px, 4vw, 36px);
   border-bottom: 3px solid var(--hl-color);
-  margin-bottom: var(--spacing);
-  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
 }
 
 .pageDescription {
-  color: var(--grey);
-  font-size: 14px;
-  letter-spacing: 1px;
+  color: var(--secondary-text-color);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 .socialIcons .icon {
@@ -92,21 +126,32 @@ body {
 }
 
 .btn {
-  color: #f9f9f9;
-  background-color: var(--hl-color);
-  border: none;
-  font-size: 14px;
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-bg);
+  font-size: 15px;
+  font-weight: 700;
   padding: 12px var(--sm-spacing);
-  border-radius: 30px;
+  border-radius: 50px;
   margin-top: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
 }
 
 .btn:hover {
-  background-color: var(--hl2-color);
+  background-color: var(--btn-bg-hover);
+  border-color: var(--btn-bg-hover);
+  color: var(--btn-text);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--hl-color);
+  outline-offset: 2px;
 }
 
 .btn:hover .arrow-icon {
@@ -115,6 +160,20 @@ body {
 
 a {
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .spinner {
@@ -135,12 +194,21 @@ a {
 
 /* --- HEADER ---  */
 header {
-  padding: var(--sm-spacing) var(--spacing);
+  position: relative;
+  padding: 16px;
   color: var(--text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (min-width: 750px) {
+  header {
+    padding: var(--sm-spacing) var(--spacing);
+    margin-left: 10px;
+  }
 }
 
 .logo {
@@ -150,8 +218,9 @@ header {
 .links {
   display: none;
   position: absolute;
-  top: 93px;
+  top: 100%;
   right: 0px;
+  left: 0px;
   background-color: var(--bg-color);
   width: 100%;
   padding: 10px;
@@ -169,30 +238,43 @@ header {
 }
 
 .links a:hover {
-  color: white;
+  color: var(--hl-color);
 }
 
 .links.open {
   display: block;
   animation: slideDown 0.5s ease-in-out forwards;
+  max-height: calc(100vh - 93px);
+  max-height: calc(100dvh - 93px);
+  overflow-y: auto;
+  border: 1px solid var(--card-border, transparent);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .dropdown-toggle {
-  background: none;
-  border: none;
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 10px;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-bg);
+  border-radius: 12px;
+  font-size: 24px;
+  color: var(--btn-text);
   cursor: pointer;
 }
 
-.openMenu,
-.closeMenu {
-  height: 20px;
-  transition: transform 0.5s ease-in-out;
-}
-
-.closeMenu {
-  transform: rotate(180deg);
-  cursor: pointer;
+.dropdown-toggle:hover {
+  background-color: var(--btn-bg-hover);
+  border-color: var(--btn-bg-hover);
+  color: var(--btn-text);
 }
 
 .links .closed {
@@ -200,12 +282,18 @@ header {
 }
 
 .toggleMode {
-  background: none;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 8px;
+  background-color: var(--bg2-color);
+  border: 1px solid var(--hl-color);
+  border-radius: 12px;
   outline: none;
   color: var(--text-color);
-  margin-left: 10px;
-  display: none;
+  cursor: pointer;
 }
 
 .toggleIcon {
@@ -252,15 +340,20 @@ footer .socialIcons {
     display: flex;
     background-color: var(--bg-color);
     justify-content: flex-end;
+    align-items: center;
     position: relative;
     top: auto;
-    width: 0;
-    left: 0;
+    width: auto;
+    left: auto;
+    right: auto;
     padding: 0 10px;
   }
 
   .links a {
-    padding: 0px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 4px;
     margin-left: 3px;
   }
 
@@ -307,7 +400,11 @@ footer .socialIcons {
     background-color: transparent;
   }
 
+  .headerActions {
+    margin-left: 20px;
+  }
+
   .toggleMode {
-    display: inline-block;
+    display: inline-flex;
   }
 }

@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import Form from "../../components/Form";
 import ContactInfo from "../../components/ContactInfo";
 import Footer from "../../components/Footer";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 /**
  * Represents the Contact page component.
@@ -14,14 +15,15 @@ import Footer from "../../components/Footer";
  */
 
 const Contact = ({ name, email, location }) => {
+  const { t } = useLanguage();
   return (
     <>
       {/* Main Contact Page */}
       <main className="contact container">
         {/* Display the page header */}
-        <PageHeader title="Contact" description="Get in touch" />
+        <PageHeader title={t.contactPage.title} description={t.contactPage.description} />
 
-        <div className="contactWrap container">
+        <div className="contactWrap">
           <div className="row">
             {/* Display the contact form */}
             <div className="col-12 col-lg-6">

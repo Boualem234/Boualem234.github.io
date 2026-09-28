@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { NavLink } from "react-router-dom";
 import Button from "./Button";
-import aboutMeImg from "../images/aboutme.jpeg";
+import aboutMeImg from "../images/profile.jpg";
+import { useLanguage } from "../i18n/LanguageContext";
 
 /**
  * Represents the About Me section.
@@ -14,6 +15,7 @@ import aboutMeImg from "../images/aboutme.jpeg";
  */
 
 const AboutMe = ({ name }) => {
+  const { t } = useLanguage();
   // Using react-intersection-observer to determine if the component is in view
   const [ref, inView] = useInView({
     threshold: 0.4,
@@ -55,8 +57,8 @@ const AboutMe = ({ name }) => {
           <div className="personalInfo col-12 col-lg-6">
             <motion.div className="contentContainer" variants={staggerVariants}>
               {/* Display greeting and job title with animation */}
-              <motion.h4 variants={paragraphVariants}>Nice to meet you! 👋🏻</motion.h4>
-              <motion.h5 variants={paragraphVariants}>I'm a Software Engineer at COMPANY.</motion.h5>
+              <motion.h4 variants={paragraphVariants}>{t.about.greeting}</motion.h4>
+              <motion.h5 variants={paragraphVariants}>{t.about.role}</motion.h5>
 
               {/* Display content description with animation */}
               <motion.div
@@ -66,28 +68,16 @@ const AboutMe = ({ name }) => {
                 animate={inView ? "animate" : "initial"}
               >
                 {/* Paragraphs with animation */}
-                <motion.p variants={paragraphVariants}>
-                  Today, I find myself knee-deep in an exhilarating chapter of my journey as a POSITION at the tech
-                  titan, <span style={{ color: "var(--hl-color)" }}> COMPANY</span>. My playground? The captivating
-                  universe of <span style={{ color: "var(--hl-color)" }}> DEPARTMENT</span>.
-                </motion.p>
+                <motion.p variants={paragraphVariants}>{t.about.p1}</motion.p>
                 <br />
-                <motion.p variants={paragraphVariants}>
-                  Here, I don my <span style={{ color: "var(--hl-color)" }}> problem-solving </span>
-                  cape and dive headfirst into real-world challenges, all while relentlessly pursuing a{" "}
-                  <span style={{ color: "var(--hl-color)" }}> DEGREE NAME</span> degree from the UNIVERSITY. So here I
-                  am, juggling bits of binary and real-life conundrums, all while crafting my own success story.
-                </motion.p>
+                <motion.p variants={paragraphVariants}>{t.about.p2}</motion.p>
                 <br />
-                <motion.p variants={paragraphVariants}>
-                  Life is a kaleidoscope of experiences, far beyond the confines of work. When code isn't my focus, I'm
-                  conquering HOBBY, HOBBY, and fueling my love for HOBBY.
-                </motion.p>
+                <motion.p variants={paragraphVariants}>{t.about.p3}</motion.p>
               </motion.div>
 
               {/* Button to view the portfolio */}
               <NavLink to="/portfolio">
-                <Button name="View Portfolio" />
+                <Button name={t.about.button} />
               </NavLink>
             </motion.div>
           </div>

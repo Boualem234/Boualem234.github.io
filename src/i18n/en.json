@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "formation": "Education",
+    "experience": "Experience",
+    "competences": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Full Stack Developer",
+    "ctaWork": "View my work",
+    "ctaContact": "Contact me"
+  },
+  "portfolioPage": {
+    "title": "Portfolio",
+    "description": "View my work"
+  },
+  "formationPage": {
+    "title": "Education",
+    "description": "My academic background"
+  },
+  "experiencePage": {
+    "title": "Experience",
+    "description": "My professional background"
+  },
+  "competencesPage": {
+    "title": "Skills",
+    "description": "My technical skills by area"
+  },
+  "carousel": {
+    "prev": "Previous image",
+    "next": "Next image"
+  },
+  "contactPage": {
+    "title": "Contact",
+    "description": "Get in touch"
+  },
+  "resumePage": {
+    "title": "Resume",
+    "description": "Discover my expertise"
+  },
+  "form": {
+    "title": "Send a Message",
+    "name": "Name",
+    "nameError": "Please enter your name",
+    "email": "Email",
+    "emailError": "Please enter a valid email",
+    "subject": "Subject",
+    "subjectError": "Please enter a subject",
+    "message": "Message",
+    "messageError": "Please enter a message",
+    "send": "Send Message",
+    "sending": "Please wait...",
+    "sent": "Message Sent",
+    "retry": "Try again"
+  },
+  "contactInfo": {
+    "title": "Hire me",
+    "description": "I'm currently looking for a job as a Full Stack Developer. Feel free to contact me about any opportunity or collaboration.",
+    "name": "Name",
+    "location": "Location",
+    "email": "Email"
+  },
+  "about": {
+    "greeting": "Nice to meet you! 👋🏻",
+    "role": "I'm a Full Stack Developer.",
+    "p1": "When I have an idea in mind, I do everything to make it happen. I'm not afraid of failure - it makes me improve - but I refuse to give up.",
+    "p2": "I enjoy building useful, well-structured applications, with a strong focus on security and code quality.",
+    "p3": "Beyond code, I love learning, taking on challenges and turning ideas into concrete projects.",
+    "button": "View Portfolio"
+  },
+  "project": {
+    "viewCode": "View Code",
+    "viewSite": "View Site",
+    "goBack": "Go Back"
+  },
+  "footer": {
+    "rights": "All views and work are my own",
+    "madeBy": "El Guendouz Boualem's Portfolio",
+    "template": "Base template: MIT © Michael Yeates"
+  },
+  "notFound": {
+    "title": "404 Page Not Found",
+    "description": "Uh oh!",
+    "p1": "Sorry, the page you are looking for does not exist.",
+    "p2": "Please double-check the URL or navigate to another section of the site.",
+    "button": "Return to Home"
+  },
+  "brand": "When I have an idea in mind, I do everything to make it happen. I'm not afraid of failure - it makes me improve - but I refuse to give up.",
+  "tabReturn": "👋🏻 Git pulling you back in!"
+}

@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "portfolio": "Portfolio",
+    "formation": "Formation",
+    "experience": "Expérience",
+    "competences": "Compétences",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Développeur Full Stack",
+    "ctaWork": "Voir mon travail",
+    "ctaContact": "Me contacter"
+  },
+  "portfolioPage": {
+    "title": "Portfolio",
+    "description": "Voir mon travail"
+  },
+  "formationPage": {
+    "title": "Formation",
+    "description": "Mon parcours académique"
+  },
+  "experiencePage": {
+    "title": "Expérience",
+    "description": "Mon parcours professionnel"
+  },
+  "competencesPage": {
+    "title": "Compétences",
+    "description": "Mes compétences techniques rangées par domaine"
+  },
+  "carousel": {
+    "prev": "Image précédente",
+    "next": "Image suivante"
+  },
+  "contactPage": {
+    "title": "Contact",
+    "description": "Contactez-moi"
+  },
+  "resumePage": {
+    "title": "Parcours",
+    "description": "Découvrez mon expertise"
+  },
+  "form": {
+    "title": "Envoyer un message",
+    "name": "Nom",
+    "nameError": "Veuillez entrer votre nom",
+    "email": "Email",
+    "emailError": "Veuillez entrer un email valide",
+    "subject": "Sujet",
+    "subjectError": "Veuillez entrer un sujet",
+    "message": "Message",
+    "messageError": "Veuillez entrer un message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "sent": "Message envoyé",
+    "retry": "Réessayer"
+  },
+  "contactInfo": {
+    "title": "Recrutez-moi",
+    "description": "Je suis à la recherche d'un emploi en tant que Développeur Full Stack. N'hésitez pas à me contacter pour toute opportunité ou collaboration.",
+    "name": "Nom",
+    "location": "Localisation",
+    "email": "Email"
+  },
+  "about": {
+    "greeting": "Enchanté ! 👋🏻",
+    "role": "Je suis Développeur Full Stack.",
+    "p1": "Quand j'ai une idée en tête, je mets tout en œuvre pour la réaliser. Je n'ai pas peur de l'échec, il me fait progresser, mais je refuse l'abandon.",
+    "p2": "J'aime construire des applications utiles et bien structurées, en portant une attention particulière à la sécurité et à la qualité du code.",
+    "p3": "En dehors du code, j'aime apprendre, relever des défis et transformer des idées en projets concrets.",
+    "button": "Voir le Portfolio"
+  },
+  "project": {
+    "viewCode": "Voir le code",
+    "viewSite": "Voir le site",
+    "goBack": "Retour"
+  },
+  "footer": {
+    "rights": "Tous les avis et travaux sont les miens",
+    "madeBy": "Portfolio de El Guendouz Boualem",
+    "template": "Template de base : MIT © Michael Yeates"
+  },
+  "notFound": {
+    "title": "404 Page non trouvée",
+    "description": "Oups !",
+    "p1": "Désolé, la page que vous cherchez n'existe pas.",
+    "p2": "Vérifiez l'URL ou naviguez vers une autre section du site.",
+    "button": "Retour à l'accueil"
+  },
+  "brand": "Quand j'ai une idée en tête, je mets tout en œuvre pour la réaliser. Je n'ai pas peur de l'échec, il me fait progresser, mais je refuse l'abandon.",
+  "tabReturn": "👋🏻 On vous attend ici !"
+}

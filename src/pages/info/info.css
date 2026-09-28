@@ -1,0 +1,100 @@
+.infoPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--spacing);
+  padding-bottom: var(--spacing);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.infoCard {
+  background: linear-gradient(45deg, var(--card-bg-1) 0%, var(--card-bg-2) 60%, var(--card-bg-3) 100%);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border, transparent);
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--text-color);
+}
+
+.infoCard h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.infoDegree {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--hl-color);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.infoMeta {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--secondary-text-color);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.infoBullets {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.75;
+  color: var(--text-color);
+  font-size: 15px;
+  max-width: 68ch;
+}
+
+.infoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--hl-color);
+  font-size: 15px;
+  font-weight: 700;
+  min-height: 44px;
+}
+
+.infoLink:hover {
+  color: var(--hl2-color);
+  text-decoration: underline;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.skillBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.skillBadges .technology {
+  display: inline-block;
+  margin-right: 0;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+@media (min-width: 750px) {
+  .skillsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

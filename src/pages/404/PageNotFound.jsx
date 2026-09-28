@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import Button from "../../components/Button";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 /**
  * Represents the 404 Page Not Found component.
@@ -10,21 +11,22 @@ import Button from "../../components/Button";
  */
 
 const PageNotFound = () => {
+  const { t } = useLanguage();
   return (
     <main className="error">
       {/* Display the page header */}
-      <PageHeader title="404 Page Not Found" description="Uh oh!" />
+      <PageHeader title={t.notFound.title} description={t.notFound.description} />
 
       <div className="error-description">
         <div className="row">
           <div className="col">
             {/* Display a message indicating the page was not found */}
-            <p>Sorry, the page you are looking for does not exist.</p>
-            <p>Please double-check the URL or navigate to another section of the site.</p>
+            <p>{t.notFound.p1}</p>
+            <p>{t.notFound.p2}</p>
 
             {/* Provide a link back to the home page */}
             <Link to="/" className="home">
-              <Button name="Return to Home" />
+              <Button name={t.notFound.button} />
             </Link>
           </div>
         </div>

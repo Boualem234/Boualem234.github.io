@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
   margin-top: var(--spacing);
   padding-bottom: var(--spacing);
 }
 
 .brand {
-  font-size: 30px;
+  font-size: clamp(20px, 5vw, 30px);
+  line-height: 1.5;
   color: var(--text-color);
-  padding: var(--spacing);
-  margin: var(--sm-spacing);
+  padding: 24px 16px;
+  margin: 16px;
   text-align: center;
+  max-width: 68ch;
+  overflow-wrap: break-word;
 }
