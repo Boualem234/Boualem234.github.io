@@ -23,9 +23,9 @@ Portfolio personnel bilingue (FR/EN) avec thèmes clair/sombre : présentation, 
 | Chasse aux monstres | C#, Entity Framework, MySQL, API REST | Octobre 2025 |
 | AkunaEat - Livraison de repas | C#, .NET, Blazor, MVC | Mai 2025 |
 
-## Stack technique
+## Stack technique du portfolio
 
-React 18, React Router, Framer Motion, i18n maison (FR/EN), Create React App, GitHub Pages.
+React 18, React Router, Framer Motion, i18n maison (FR/EN), React App, GitHub Pages.
 
 ## Démarrage
 
