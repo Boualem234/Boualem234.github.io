@@ -24,9 +24,10 @@
     "body_fr": "Développement d'une boutique en ligne de produits alimentaires en exploitant les fonctionnalités du framework Django et son architecture MVT.\nMise en place de la gestion des données avec l'ORM Django et MySQL, ainsi que de l'intégration des paiements via PayPal.\nDéveloppement en équipe de 3 avec GitHub et GitFlow, avec une attention particulière portée à la sécurité et à la structuration de l'application. (Décembre 2025)",
     "body_en": "Development of an online grocery shop using the Django framework and its MVT architecture.\nData management with Django ORM and MySQL, plus PayPal payment integration.\nTeam of 3 working with GitHub and GitFlow, with a strong focus on security and application structure. (December 2025)",
     "technologies": ["Python", "Django", "MySQL", "Django ORM", "PayPal", "GitHub", "GitFlow"],
-    "github": "https://github.com/Boualem234",
-    "deployed": "https://github.com/Boualem234",
+    "github": "https://github.com/Boualem234/ProjetFinal_WebMasterz_GroceryBasket",
+    "deployed": null,
     "bgcolor": "var(--hl2-color)",
+    "date": "2025-12",
     "id": "1"
   },
   {
@@ -53,9 +54,10 @@
     "body_fr": "Développement d'une application de livraison de repas type UberEats (AkunaEat) avec gestion des restaurants, des utilisateurs et des commandes.\nCôté client : commande de plats ; côté restaurant : gestion des commandes et des établissements.\nIntégration d'une API externe pour le calcul des distances et la détermination de l'éligibilité des livraisons.\nRéalisation de l'analyse et de la conception avec des diagrammes de cas d'utilisation, de classes et de séquences, suivie du développement en C#/.NET avec MVC et Blazor. (Mai 2025)",
     "body_en": "Development of an UberEats-like food delivery app (AkunaEat) managing restaurants, users and orders.\nCustomer side: meal ordering; restaurant side: order and venue management.\nIntegration of an external API to compute distances and determine delivery eligibility.\nAnalysis and design with use-case, class and sequence diagrams, followed by development in C#/.NET with MVC and Blazor. (May 2025)",
     "technologies": ["C#", ".NET", "Blazor", "MVC", "API REST", "GitHub"],
-    "github": "https://github.com/Boualem234",
-    "deployed": "https://github.com/Boualem234",
+    "github": "https://github.com/Boualem234/AKUNAeat",
+    "deployed": null,
     "bgcolor": "#3e67ff",
+    "date": "2025-05",
     "id": "2"
   },
   {
@@ -66,17 +68,18 @@
     "description": "Jeu d'exploration et de chasse aux monstres",
     "description_fr": "Jeu d'exploration et de chasse aux monstres",
     "description_en": "Exploration and monster hunt game",
-    "image": "/projectImages/quiz.png",
-    "image2": "/projectImages/javascript.jpeg",
-    "image3": "/projectImages/quiz3.png",
-    "images": ["/projectImages/quiz.png", "/projectImages/javascript.jpeg", "/projectImages/quiz3.png"],
+    "image": "/projectImages/monstres-placeholder.svg",
+    "image2": "/projectImages/monstres-placeholder.svg",
+    "image3": "/projectImages/monstres-placeholder.svg",
+    "images": ["/projectImages/monstres-placeholder.svg"],
     "body": "Développement d'un jeu d'exploration sur une carte 5x5 permettant d'explorer, combattre et capturer des monstres ainsi que de réaliser différentes quêtes.\nConception d'une architecture MVC en C# avec Entity Framework et MySQL, et intégration d'API REST pour récupérer les données des monstres et des quêtes.\nCollaboration en équipe de 2 avec gestion du versionnage du code via GitHub. (Octobre 2025)",
     "body_fr": "Développement d'un jeu d'exploration sur une carte 5x5 permettant d'explorer, combattre et capturer des monstres ainsi que de réaliser différentes quêtes.\nConception d'une architecture MVC en C# avec Entity Framework et MySQL, et intégration d'API REST pour récupérer les données des monstres et des quêtes.\nCollaboration en équipe de 2 avec gestion du versionnage du code via GitHub. (Octobre 2025)",
     "body_en": "Development of an exploration game on a 5x5 map to explore, fight and capture monsters and complete various quests.\nMVC architecture in C# with Entity Framework and MySQL, plus REST API integration to fetch monsters and quests data.\nTeam of 2 with code versioning via GitHub. (October 2025)",
     "technologies": ["C#", "Entity Framework", "MySQL", "REST API", "MVC", "GitHub"],
-    "github": "https://github.com/Boualem234",
-    "deployed": "https://github.com/Boualem234",
+    "github": "https://github.com/Boualem234/MonsterAPIDuo-main-public",
+    "deployed": null,
     "bgcolor": "#f85781",
+    "date": "2025-10",
     "id": "3"
   },
   {
@@ -97,13 +100,14 @@
       "/projectImages/bibliboua/bibliboua4.png",
       "/projectImages/bibliboua/bibliboua5.png"
     ],
-    "body": "Premier projet Django : découverte du framework et de son architecture MVT (Model-View-Template), de l'ORM, de l'admin Django, du routing, des formulaires et de la structuration d'une application.\nMise en pratique des bonnes pratiques d'authentification et d'autorisation Django : utilisateurs, groupes et permissions pour restreindre l'accès par rôle.\nDéveloppement avec GitHub et GitFlow. (2024)",
-    "body_fr": "Premier projet Django : découverte du framework et de son architecture MVT (Model-View-Template), de l'ORM, de l'admin Django, du routing, des formulaires et de la structuration d'une application.\nMise en pratique des bonnes pratiques d'authentification et d'autorisation Django : utilisateurs, groupes et permissions pour restreindre l'accès par rôle.\nDéveloppement avec GitHub et GitFlow. (2024)",
-    "body_en": "First Django project: discovering the framework and its MVT (Model-View-Template) architecture, ORM, Django admin, routing, forms and application structure.\nHands-on with Django auth best practices: users, groups and permissions to restrict access by role.\nBuilt with GitHub and GitFlow. (2024)",
+    "body": "Premier projet Django : découverte du framework et de son architecture MVT (Model-View-Template), de l'ORM, de l'admin Django, du routing, des formulaires et de la structuration d'une application.\nMise en pratique des bonnes pratiques d'authentification et d'autorisation Django : utilisateurs, groupes et permissions pour restreindre l'accès par rôle.\nDéveloppement avec GitHub et GitFlow. (Octobre 2025)",
+    "body_fr": "Premier projet Django : découverte du framework et de son architecture MVT (Model-View-Template), de l'ORM, de l'admin Django, du routing, des formulaires et de la structuration d'une application.\nMise en pratique des bonnes pratiques d'authentification et d'autorisation Django : utilisateurs, groupes et permissions pour restreindre l'accès par rôle.\nDéveloppement avec GitHub et GitFlow. (Octobre 2025)",
+    "body_en": "First Django project: discovering the framework and its MVT (Model-View-Template) architecture, ORM, Django admin, routing, forms and application structure.\nHands-on with Django auth best practices: users, groups and permissions to restrict access by role.\nBuilt with GitHub and GitFlow. (October 2025)",
     "technologies": ["Python", "Django", "MVT", "Permissions Django", "Groupes & Utilisateurs", "GitHub", "GitFlow"],
-    "github": "https://github.com/Boualem234",
-    "deployed": "https://github.com/Boualem234",
+    "github": "https://github.com/Boualem234/Django_Bibliotheque",
+    "deployed": null,
     "bgcolor": "#8e44ad",
+    "date": "2025-10",
     "id": "4"
   },
   {
@@ -128,13 +132,14 @@
       "/projectImages/woogmaprojet/woogmaprojet8.png",
       "/projectImages/woogmaprojet/woogmaprojet9.png"
     ],
-    "body": "Numérisation complète du suivi d'atelier pour AUEM : application web (Django, HTMX, Tabler) remplaçant les fiches suiveuses papier par un système temps réel de scan de codes-barres.\nArchitecture d'intégration & API : API REST avec Django Ninja pour ingérer et synchroniser les commandes depuis AUEM Order, modélisation relationnelle avancée (PostgreSQL) et dédoublonnage.\nPilotage de production & DataViz : tableau de bord (Chart.js), suivi des retards, planning interactif (FullCalendar), tunnel de commande guidé en 4 étapes (HTMX).\nDevOps & bonnes pratiques : Docker (builds avec uv), CI/CD sur VPS via Coolify, stockage objet OVH S3, Sentry, équipe Agile Scrum. (Stage Fév. 2026 - Mai 2026)",
-    "body_fr": "Numérisation complète du suivi d'atelier pour AUEM : application web (Django, HTMX, Tabler) remplaçant les fiches suiveuses papier par un système temps réel de scan de codes-barres.\nArchitecture d'intégration & API : API REST avec Django Ninja pour ingérer et synchroniser les commandes depuis AUEM Order, modélisation relationnelle avancée (PostgreSQL) et dédoublonnage.\nPilotage de production & DataViz : tableau de bord (Chart.js), suivi des retards, planning interactif (FullCalendar), tunnel de commande guidé en 4 étapes (HTMX).\nDevOps & bonnes pratiques : Docker (builds avec uv), CI/CD sur VPS via Coolify, stockage objet OVH S3, Sentry, équipe Agile Scrum. (Stage Fév. 2026 - Mai 2026)",
-    "body_en": "Full digitization of AUEM workshop tracking: web app (Django, HTMX, Tabler) replacing paper tracking sheets with a real-time barcode scanning system.\nIntegration & API architecture: REST API with Django Ninja to ingest and sync orders from AUEM Order, advanced relational modeling (PostgreSQL) and deduplication.\nProduction steering & DataViz: dashboard (Chart.js), late-delivery tracking, interactive planning (FullCalendar), 4-step guided order tunnel (HTMX).\nDevOps & best practices: Docker (uv builds), CI/CD on VPS via Coolify, OVH S3 object storage, Sentry, Agile Scrum team. (Internship Feb 2026 - May 2026)",
+    "body": "Numérisation complète du suivi d'atelier pour AUEM : application web (Django, HTMX, Tabler) remplaçant les fiches suiveuses papier par un système temps réel de scan de codes-barres.\nArchitecture d'intégration & API : API REST avec Django Ninja pour ingérer et synchroniser les commandes depuis AUEM Order, modélisation relationnelle avancée (PostgreSQL) et dédoublonnage.\nPilotage de production & DataViz : tableau de bord (Chart.js), suivi des retards, planning interactif (FullCalendar), tunnel de commande guidé en 4 étapes (HTMX).\nDevOps & bonnes pratiques : Docker (builds avec uv), CI/CD sur VPS via Coolify, stockage objet OVH S3, Sentry, équipe Agile Scrum. (Juin 2026)",
+    "body_fr": "Numérisation complète du suivi d'atelier pour AUEM : application web (Django, HTMX, Tabler) remplaçant les fiches suiveuses papier par un système temps réel de scan de codes-barres.\nArchitecture d'intégration & API : API REST avec Django Ninja pour ingérer et synchroniser les commandes depuis AUEM Order, modélisation relationnelle avancée (PostgreSQL) et dédoublonnage.\nPilotage de production & DataViz : tableau de bord (Chart.js), suivi des retards, planning interactif (FullCalendar), tunnel de commande guidé en 4 étapes (HTMX).\nDevOps & bonnes pratiques : Docker (builds avec uv), CI/CD sur VPS via Coolify, stockage objet OVH S3, Sentry, équipe Agile Scrum. (Juin 2026)",
+    "body_en": "Full digitization of AUEM workshop tracking: web app (Django, HTMX, Tabler) replacing paper tracking sheets with a real-time barcode scanning system.\nIntegration & API architecture: REST API with Django Ninja to ingest and sync orders from AUEM Order, advanced relational modeling (PostgreSQL) and deduplication.\nProduction steering & DataViz: dashboard (Chart.js), late-delivery tracking, interactive planning (FullCalendar), 4-step guided order tunnel (HTMX).\nDevOps & best practices: Docker (uv builds), CI/CD on VPS via Coolify, OVH S3 object storage, Sentry, Agile Scrum team. (June 2026)",
     "technologies": ["Python", "Django", "Django Ninja", "HTMX", "PostgreSQL", "Chart.js", "FullCalendar", "Docker", "Coolify", "OVH S3", "Sentry"],
-    "github": "https://github.com/Boualem234",
-    "deployed": "https://github.com/Boualem234",
+    "github": null,
+    "deployed": null,
     "bgcolor": "#16a085",
+    "date": "2026-06",
     "id": "5"
   }
 ]

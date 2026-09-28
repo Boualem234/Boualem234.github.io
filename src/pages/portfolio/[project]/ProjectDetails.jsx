@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiArrowUpRight } from "react-icons/fi";
 import PageHeader from "../../../components/PageHeader";
 import PageNotFound from "../../404/PageNotFound";
 import Carousel from "../../../components/Carousel";
@@ -112,6 +112,19 @@ const ProjectDetails = () => {
                   </motion.p>
                 ))}
               </div>
+
+              {project.github && (
+                <div className="projectLinks">
+                  <a
+                    className="btn projectLinkBtn"
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t.project.viewCode} <FiArrowUpRight className="arrow-icon" aria-hidden="true" />
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>

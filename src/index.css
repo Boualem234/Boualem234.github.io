@@ -20,6 +20,9 @@
   --btn-text: #06281f;
   --tech-bg: #00b89422;
   --tech-text: #4fe0b5;
+  --link-color: #00b894;
+  --link-hover: #16a085;
+  --accent-strong: #00b894;
   --spacing: 50px;
   --sm-spacing: 30px;
 }
@@ -323,11 +326,11 @@ footer p span {
 
 footer .footer-link {
   text-decoration: none;
-  color: var(--hl-color);
+  color: var(--link-color);
   padding-top: 10px;
 }
 footer .footer-link:hover {
-  color: var(--hl2-color);
+  color: var(--link-hover);
 }
 
 footer .socialIcons {

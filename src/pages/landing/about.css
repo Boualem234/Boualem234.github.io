@@ -38,7 +38,7 @@
 }
 
 .contentContainer h4 {
-  color: var(--hl-color);
+  color: var(--accent-strong);
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 15px;

@@ -68,7 +68,7 @@
   flex-wrap: wrap;
   gap: 8px;
   min-width: 0;
-  font-size: 12px;
+  font-size: 13px;
   white-space: normal;
   overflow-wrap: anywhere;
 }
@@ -117,6 +117,17 @@
 .paragraph {
   margin-bottom: 1em;
   color: var(--text-color);
+}
+
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.projectLinkBtn {
+  margin-top: 0;
 }
 
 .technology {

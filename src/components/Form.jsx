@@ -1,9 +1,12 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import validator from "email-validator";
 import Button from "./Button";
 import { useLanguage } from "../i18n/LanguageContext";
+
+// Minimum human fill time (ms): faster submissions are treated as bots
+const MIN_FILL_TIME_MS = 3000;
 
 /**
  * Contact Form Component
@@ -39,12 +42,16 @@ const Form = () => {
   const [subjectError, setSubjectError] = useState(false);
   const [messageError, setMessageError] = useState(false);
 
-  // State for form data
+  // Timestamp of form mount (bot time-trap, free anti-spam)
+  const mountTime = useRef(Date.now());
+
+  // State for form data (botcheck: honeypot natively handled by web3forms)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    botcheck: false,
     access_key: process.env.REACT_APP_ACCESS_KEY,
   });
 
@@ -64,6 +71,26 @@ const Form = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Silent bot rejection: honeypot checked or inhuman fill speed.
+    // Show the same success state so bots learn nothing.
+    if (formData.botcheck || Date.now() - mountTime.current < MIN_FILL_TIME_MS) {
+      setSending(false);
+      setSuccess(true);
+      setFailed(false);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        botcheck: false,
+        access_key: process.env.REACT_APP_ACCESS_KEY,
+      });
+      setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
+      return;
+    }
 
     // Validate and set error states
     formData.name === "" ? setNameError(true) : setNameError(false);
@@ -215,6 +242,23 @@ const Form = () => {
           autoComplete="off"
         ></textarea>
       </div>
+      {/* Honeypot: invisible to humans, bots fill it and get silently rejected */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        checked={formData.botcheck}
+        onChange={(e) => setFormData({ ...formData, botcheck: e.target.checked })}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          opacity: 0,
+        }}
+      />
       {/* Form submission button */}
       <motion.div className="col-12 formGroup formSubmit">
         <Button

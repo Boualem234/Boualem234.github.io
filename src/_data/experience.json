@@ -5,8 +5,8 @@
     "company": "WOOGMA",
     "location_fr": "Châtelet, Belgique",
     "location_en": "Châtelet, Belgium",
-    "period_fr": "Fév. 2026 - Mai 2026",
-    "period_en": "Feb. 2026 - May 2026",
+    "period_fr": "Juin 2026",
+    "period_en": "June 2026",
     "projectSlug": "suivi-atelier-auem",
     "bullets_fr": [
       "Numérisation complète du suivi d'atelier pour AUEM : application web (Django, HTMX, Tabler) remplaçant les fiches papier par un système temps réel de scan de codes-barres.",

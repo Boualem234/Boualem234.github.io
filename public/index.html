@@ -2,10 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/projectImages/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/eb.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="El Guendouz Boualem" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0e1513" />
     <meta
       name="description"
       content="Découvrez le portfolio d'El Guendouz Boualem, Développeur Full Stack."
@@ -25,6 +25,21 @@
       referrerpolicy="no-referrer"
     />
     <title>El Guendouz Boualem | Développeur Full Stack | Portfolio</title>
+    <script>
+      // Single Page Apps for GitHub Pages (MIT, rafgraph): restore routed URL
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>

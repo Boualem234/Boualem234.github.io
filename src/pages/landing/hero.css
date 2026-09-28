@@ -79,7 +79,7 @@
 }
 
 .heroSkillTitle {
-  color: var(--hl-color);
+  color: var(--accent-strong);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -106,7 +106,7 @@
 }
 
 .heroSkillsLink {
-  color: var(--hl-color);
+  color: var(--link-color);
   font-size: 15px;
   font-weight: 700;
   margin-top: 4px;
@@ -118,7 +118,7 @@
 }
 
 .heroSkillsLink:hover {
-  color: var(--hl2-color);
+  color: var(--link-hover);
   text-decoration: underline;
 }
 

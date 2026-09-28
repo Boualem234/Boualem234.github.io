@@ -30,6 +30,9 @@ const darkColors = {
   "--btn-text": "#06281f",
   "--tech-bg": "#00b89422",
   "--tech-text": "#4fe0b5",
+  "--link-color": "#00b894",
+  "--link-hover": "#16a085",
+  "--accent-strong": "#00b894",
 };
 
 const lightColors = {
@@ -38,19 +41,22 @@ const lightColors = {
   "--hl-color": "#006b52",
   "--hl2-color": "#005844",
   "--text-color": "#15212b",
-  "--secondary-text-color": "#3f4c5a",
-  "--grey": "#4b5a69",
+  "--secondary-text-color": "#333f4c",
+  "--grey": "#414e5c",
   "--hero-shadow": "none",
   "--card-bg-1": "#ffffff",
   "--card-bg-2": "#e4f2ea",
-  "--card-bg-3": "#c6e4d4",
-  "--card-shadow": "0 6px 22px rgba(0, 107, 82, 0.16)",
-  "--card-border": "#bcd9c9",
+  "--card-bg-3": "#c0dfcf",
+  "--card-shadow": "0 8px 26px rgba(0, 107, 82, 0.2)",
+  "--card-border": "#9fc9b4",
   "--btn-bg": "#006b52",
   "--btn-bg-hover": "#005844",
   "--btn-text": "#ffffff",
-  "--tech-bg": "#006b5214",
-  "--tech-text": "#005844",
+  "--tech-bg": "#006b5230",
+  "--tech-text": "#00402f",
+  "--link-color": "#005844",
+  "--link-hover": "#003d30",
+  "--accent-strong": "#005844",
 };
 
 const LightDarkToggle = () => {

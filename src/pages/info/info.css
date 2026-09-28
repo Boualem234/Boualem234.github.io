@@ -33,7 +33,7 @@
 .infoDegree {
   font-size: 16px;
   font-weight: 700;
-  color: var(--hl-color);
+  color: var(--accent-strong);
   margin-bottom: 6px;
   line-height: 1.5;
 }
@@ -60,14 +60,14 @@
   align-items: center;
   gap: 6px;
   margin-top: 14px;
-  color: var(--hl-color);
+  color: var(--link-color);
   font-size: 15px;
   font-weight: 700;
   min-height: 44px;
 }
 
 .infoLink:hover {
-  color: var(--hl2-color);
+  color: var(--link-hover);
   text-decoration: underline;
 }
 

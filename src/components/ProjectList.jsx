@@ -13,7 +13,11 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 const ProjectList = () => {
   const { lang } = useLanguage();
-  return projects.map((project, i) => (
+  // Most recent first (date "YYYY-MM"); tie-break: higher id first (bibliboua before monstres)
+  const sorted = [...projects].sort(
+    (a, b) => (b.date || "").localeCompare(a.date || "") || Number(b.id) - Number(a.id)
+  );
+  return sorted.map((project, i) => (
     <ProjectCard
       key={project.id}
       title={lang === "en" ? project.title_en || project.title : project.title_fr || project.title}

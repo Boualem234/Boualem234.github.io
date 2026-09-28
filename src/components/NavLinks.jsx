@@ -18,20 +18,6 @@ const NavLinks = () => {
 
   return (
     <>
-      <div className="headerActions">
-        {/* Theme toggle: always visible, even on mobile with closed menu */}
-        <LightDarkToggle />
-        {/* Menu toggle button (mobile only, see index.css) */}
-        <button
-          className="dropdown-toggle"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={isMenuOpen}
-          aria-controls="main-navigation"
-        >
-          {isMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
-        </button>
-      </div>
       {/* Navigation links */}
       <nav id="main-navigation" className={`links ${isMenuOpen ? "open" : "closed"}`}>
         <motion.div
@@ -96,33 +82,41 @@ const NavLinks = () => {
             {t.nav.contact}
           </NavLink>
         </motion.div>
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.1, duration: 0.5, type: "spring" }}
-        >
-          {/* Language toggle FR/EN */}
-          <button
-            className="langToggle"
-            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-            aria-label="Changer de langue / Switch language"
-            style={{
-              background: "transparent",
-              border: "1px solid var(--hl-color)",
-              borderRadius: "20px",
-              color: "var(--text-color)",
-              cursor: "pointer",
-              fontSize: "13px",
-              fontWeight: "700",
-              letterSpacing: "1px",
-              padding: "10px 16px",
-              minHeight: "44px",
-            }}
-          >
-            {lang === "fr" ? "EN" : "FR"}
-          </button>
-        </motion.div>
       </nav>
+      <div className="headerActions">
+        {/* Language toggle FR/EN */}
+        <button
+          className="langToggle"
+          onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+          aria-label="Changer de langue / Switch language"
+          style={{
+            background: "transparent",
+            border: "1px solid var(--hl-color)",
+            borderRadius: "20px",
+            color: "var(--text-color)",
+            cursor: "pointer",
+            fontSize: "13px",
+            fontWeight: "700",
+            letterSpacing: "1px",
+            padding: "10px 16px",
+            minHeight: "44px",
+          }}
+        >
+          {lang === "fr" ? "EN" : "FR"}
+        </button>
+        {/* Theme toggle: always visible, even on mobile with closed menu */}
+        <LightDarkToggle />
+        {/* Menu toggle button (mobile only, see index.css) */}
+        <button
+          className="dropdown-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="main-navigation"
+        >
+          {isMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+        </button>
+      </div>
     </>
   );
 };
