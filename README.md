@@ -1,174 +1,58 @@
 <a name="readme-top"></a>
 
-  <!-- PROJECT SHIELDS -->
+<div align="center">
+  <h1 align="center">Portfolio — El Guendouz Boualem</h1>
+  <p align="center">
+    Développeur Full Stack — Python (Django), C# (.NET), JavaScript
+    <br />
+    <a href="https://boualem234.github.io"><strong>Voir le site en ligne »</strong></a>
+  </p>
+</div>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+## Aperçu
 
-  <!-- PROJECT LOGO -->
+Portfolio personnel bilingue (FR/EN) avec thèmes clair/sombre : présentation, parcours (formation, expérience, compétences), 5 projets détaillés avec carrousels d'images et visionneuse plein écran, formulaire de contact.
 
-  <br />
-  <div align="center">
-    <a href="https://github.com/mdyeates/my-portfolio">
-      <img src="src/images/logo.svg" alt="Logo" width="200" height="200">
-    </a>
-    <h1 align="center">michaelyeates.co.uk</h1>
-    <p align="center">
-    <br/>
-Crafting Connections through Code: Explore my journey, projects, and passions in this immersive portfolio powered by React.<br/>
-      <br/>
-      Built by: Michael Yeates
-      <br/>
-      <br/>
-      <a href="https://github.com/mdyeates/my-portfolio"><strong>Explore the docs »</strong></a>
-      <br/>
-      <br/>
-      <a href="https://michaelyeates.co.uk">View Live Website</a>
-      ·
-      <a href="https://github.com/mdyeates/my-portfolio/issues">Report Bug</a>
-      ·
-      <a href="https://github.com/mdyeates/my-portfolio/issues">Request Feature</a>
-    </p>
-  </div>
-  
-  <!-- TABLE OF CONTENTS -->
+## Projets
 
-  <details>
-    <summary>Table of Contents</summary>
-    <ol>
-      <li>
-        <a href="#about-the-project">About The Project</a>
-        <ul>
-          <li><a href="#photos">Photos</a></li>
-          <li><a href="#built-with">Built With</a></li>
-          <li><a href="#description">Description</a></li>
-        </ul>
-      </li>
-      <li>
-          <a href="#getting-started">Getting Started</a>
-        <ul>
-          <li><a href="#prerequisites">Prerequisites</a></li>
-          <li><a href="#installation">Installation</a></li>
-        </ul>
-      </li>
-      <li><a href="#license">License</a></li>
-      <li><a href="#questions">Questions</a></li>
-    </ol>
-  </details>
-  
-  <!-- ABOUT THE PROJECT -->
-  
-  ## About The Project
-  
-  ### Photos
-  
-[![My React Portfolio Screen Shot][product-screenshot]](https://michaelyeates.co.uk)
+| Projet | Stack | Date |
+| --- | --- | --- |
+| Suivi d'atelier AUEM - WOOGMA | Django, Django Ninja, HTMX, PostgreSQL, Docker | Juin 2026 |
+| Boutique en ligne | Django, MySQL, PayPal | Décembre 2025 |
+| Bibliothèque Boualem | Django, permissions/groupes | Octobre 2025 |
+| Chasse aux monstres | C#, Entity Framework, MySQL, API REST | Octobre 2025 |
+| AkunaEat - Livraison de repas | C#, .NET, Blazor, MVC | Mai 2025 |
 
-[![My React Portfolio Screen Shot][product-screenshot2]](https://michaelyeates.co.uk)
+## Stack technique
 
-[![My React Portfolio Screen Shot][product-screenshot3]](https://michaelyeates.co.uk)
+React 18, React Router, Framer Motion, i18n maison (FR/EN), Create React App, GitHub Pages.
 
-[![My React Portfolio Screen Shot][product-screenshot4]](https://michaelyeates.co.uk)
+## Démarrage
 
-  <p align="right"><a href="#readme-top">back to top</a></p>
-  
-  ### Built With
-  
-  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=React&logoColor=61DAFB)
+```bash
+cd my-portfolio
+npm install
+npm start
+```
 
-  <p align="right"><a href="#readme-top">back to top</a></p>
-  
-  ### Description
-  
-This is more than a portfolio; it's an invitation to explore, learn, and connect. So, immerse yourself and enjoy the journey.
+```bash
+npm run build   # build de production
+npm run deploy  # publication GitHub Pages (branche gh-pages)
+```
 
-While I wholeheartedly encourage you to utilise my portfolio as a springboard for your own creative ventures, I would like to kindly ask that, in the spirit of fairness and recognition, you provide attribution to <strong>michaelyeates.co.uk</strong>. Your support in acknowledging the origin of this portfolio is greatly appreciated.
+## Structure
 
-I kindly urge you to abstain from portraying either the portfolio or the projects as products of your own authorship. The energy and time devoted to shaping this portfolio reflect my personal journey and aspirations.
+- `src/pages/` : accueil, portfolio (+ détail projet), formation, expérience, compétences, contact
+- `src/components/` : carrousel, visionneuse, navigation, formulaire, icônes
+- `src/_data/` : projets, formation, expérience, compétences (JSON bilingues)
+- `public/projectImages/` : captures des projets
 
-Thank you for your understanding, and for embracing the ethos of creativity, authenticity, and shared respect that underpins our digital community. Your appreciation means a lot!
+## Contact
 
-If you like what you see, I'd be truly grateful if you consider giving it a star 🌟
+- GitHub : [Boualem234](https://github.com/Boualem234)
+- LinkedIn : [elguendouz-boualem](https://www.linkedin.com/in/elguendouz-boualem/)
+- Formulaire sur le site (via le portfolio déployé)
 
-<h3>TL;DR</h3>
-Feel free to fork this repo for your own purposes, provided you give me credit.
+## Crédits
 
-  <p align="right"><a href="#readme-top">back to top</a></p>
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/mdyeates/my-portfolio.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-
-  <p align="right"><a href="#readme-top">back to top</a></p>
-  
- 
-  <!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE.md` for more information.
-
-  <p align="right"><a href="#readme-top">back to top</a></p>
-  
-  
-<!-- QUESTIONS -->
-  
-## Questions
-
-If you have any inquiries, don't hesitate to reach out to me via socials or by sending an email to <a href="mailto:michael-yeates@outlook.com">michael-yeates@outlook.com</a>
-
-<a href="https://www.linkedin.com/in/mdyeates/">LinkedIn</a> | <a href="https://github.com/mdyeates/">GitHub</a>
-
-Project Link: [https://github.com/mdyeates/my-portfolio](https://github.com/mdyeates/my-portfolio)
-
-  <p align="right"><a href="#readme-top">back to top</a></p>
-  
-  <!-- MARKDOWN LINKS & IMAGES -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/mdyeates/my-portfolio.svg?style=for-the-badge
-[contributors-url]: https://github.com/mdyeates/my-portfolio/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mdyeates/my-portfolio.svg?style=for-the-badge
-[forks-url]: https://github.com/mdyeates/my-portfolio/network/members
-[stars-shield]: https://img.shields.io/github/stars/mdyeates/my-portfolio.svg?style=for-the-badge
-[stars-url]: https://github.com/mdyeates/my-portfolio/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mdyeates/my-portfolio.svg?style=for-the-badge
-[issues-url]: https://github.com/mdyeates/my-portfolio/issues
-[license-shield]: https://img.shields.io/github/license/mdyeates/my-portfolio.svg?style=for-the-badge
-[license-url]: https://github.com/mdyeates/my-portfolio/blob/main/LICENSE.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/mdyeates
-
-  <!-- UPDATE PLACEHOLDER IMAGES HERE -->
-
-[product-screenshot]: src/images/screenshot.png
-[product-screenshot2]: src/images/screenshot2.png
-[product-screenshot3]: src/images/screenshot3.png
-[product-screenshot4]: src/images/screenshot4.png
-[responsive-screenshot]: src/images/mobile-screenshot.png
-[responsive-screenshot2]: src/images/mobile-screenshot2.png
-[responsive-screenshot3]: src/images/mobile-screenshot3.png
-[responsive-screenshot4]: src/images/mobile-screenshot4.png
+Template de base : MIT © Michael Yeates (voir `LICENSE.md`, conservé sans modification).
