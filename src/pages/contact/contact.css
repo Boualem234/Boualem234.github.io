@@ -76,6 +76,45 @@ ul {
   margin-top: 8px;
 }
 
+/* Desktop : infos en 3 colonnes côte à côte (mobile : empilé) */
+@media (min-width: 750px) {
+  .contactSingle {
+    max-width: 960px;
+  }
+
+  .contactSingle .listInfo {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .contactSingle .listInfo > li {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 300px;
+  }
+
+  .contactSingle .personalContactInfo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    gap: 8px;
+  }
+
+  .contactSingle .infoIcon {
+    width: auto;
+  }
+
+  .contactSingle .mediaWrap {
+    border-left: none;
+    border-top: 2px solid var(--grey);
+    padding: 16px 12px 0;
+  }
+}
+
 .icon {
   color: var(--hl-color);
   font-size: 28px;
