@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Accueil",
-    "portfolio": "Portfolio",
+    "portfolio": "Projets",
     "formation": "Formation",
     "experience": "Expérience",
     "competences": "Compétences",
@@ -13,7 +13,7 @@
     "ctaContact": "Me contacter"
   },
   "portfolioPage": {
-    "title": "Portfolio",
+    "title": "Projets",
     "description": "Voir mon travail"
   },
   "formationPage": {
@@ -67,12 +67,12 @@
     "role": "Je suis Développeur Full Stack.",
     "p1": "Quand j'ai une idée en tête, je mets tout en œuvre pour la réaliser. Je n'ai pas peur de l'échec, il me fait progresser, mais je refuse l'abandon.",
     "p2": "J'aime construire des applications utiles et bien structurées, en portant une attention particulière à la sécurité et à la qualité du code.",
-    "p3": "En dehors du code, j'aime apprendre, relever des défis et transformer des idées en projets concrets.",
-    "button": "Voir le Portfolio"
+    "p3": "En dehors du code, j'aime apprendre, relever des défis et transformer des idées en projets concrets."
   },
   "project": {
     "viewCode": "Voir le code",
     "viewSite": "Voir le site",
+    "viewDetails": "Voir les détails",
     "goBack": "Retour"
   },
   "footer": {
@@ -88,5 +88,5 @@
     "button": "Retour à l'accueil"
   },
   "brand": "Quand j'ai une idée en tête, je mets tout en œuvre pour la réaliser. Je n'ai pas peur de l'échec, il me fait progresser, mais je refuse l'abandon.",
-  "tabReturn": "👋🏻 On vous attend ici !"
+  "tabReturn": "Reviens vite ! 👋"
 }

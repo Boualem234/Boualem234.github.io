@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import NavLinks from "./NavLinks";
 
 /**
@@ -9,10 +9,24 @@ import NavLinks from "./NavLinks";
  */
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const goHome = (e) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate("/#accueil");
+    } else {
+      const el = document.getElementById("accueil");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="header">
-      {/* Link to the home page */}
-      <NavLink to="/">
+      {/* Logo : retour en haut de la page unique */}
+      <a href="#accueil" onClick={goHome} aria-label="Retour en haut">
         {/* Animated logo */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -35,7 +49,7 @@ const Header = () => {
             EB
           </motion.span>
         </motion.div>
-      </NavLink>
+      </a>
       {/* Navigation links */}
       <NavLinks />
     </header>

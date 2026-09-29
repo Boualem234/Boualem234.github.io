@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import profileImage from "../images/profile.jpg";
-import SocialIcons from "./SocialIcons";
 import Button from "./Button";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -15,31 +13,13 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 const Hero = ({ name }) => {
   const { t, lang } = useLanguage();
-  const skillGroups = [
-    {
-      title: lang === "en" ? "Back-end & APIs" : "Back-end & APIs",
-      items: ["Python (Django, Ninja)", "C# (ASP.NET Core)", "API REST", "Huey"],
-    },
-    {
-      title: lang === "en" ? "Front-end & DataViz" : "Front-end & DataViz",
-      items: ["JavaScript", "HTMX", "Blazor", "Chart.js", "Tabler / Bootstrap"],
-    },
-    {
-      title: lang === "en" ? "Databases & Design" : "Bases de données & Conception",
-      items: ["PostgreSQL", "MySQL", "SQL Server", "MVC / MVVM / MVT"],
-    },
-    {
-      title: lang === "en" ? "Cloud, DevOps & Methods" : "Cloud, DevOps & Méthodes",
-      items: ["Docker", "Coolify", "S3 OVHcloud", "Sentry", "CI/CD", "GitFlow", "Scrum"],
-    },
-  ];
   // Styles for various elements (tailles avatar/nom pilotées par hero.css)
   const styles = {
     avatar: {
       borderRadius: "50%",
       objectFit: "cover",
-      border: "3px solid var(--hl-color)",
-      marginBottom: "16px",
+      border: "2px solid var(--hl-color)",
+      marginBottom: "12px",
     },
 
     textContainer: {
@@ -56,7 +36,7 @@ const Hero = ({ name }) => {
     name: {
       color: "var(--text-color)",
       fontWeight: "700",
-      paddingBottom: "28px",
+      paddingBottom: "12px",
     },
   };
   return (
@@ -101,47 +81,20 @@ const Hero = ({ name }) => {
             }}
           />
         </motion.div>
-        {/* Call-to-action buttons */}
+        {/* Call-to-action buttons : ancres vers la page unique */}
         <motion.div
           className="heroCta"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          style={{ display: "flex", gap: "12px", marginTop: "28px", flexWrap: "wrap", justifyContent: "center" }}
+          style={{ display: "flex", gap: "12px", marginTop: "20px", flexWrap: "wrap", justifyContent: "center" }}
         >
-          <NavLink to="/portfolio">
+          <a href="#projets">
             <Button name={t.hero.ctaWork} />
-          </NavLink>
-          <NavLink to="/contact">
+          </a>
+          <a href="#contact">
             <Button name={t.hero.ctaContact} />
-          </NavLink>
-        </motion.div>
-        {/* Social icons: photo, nom, rôle, boutons, icônes, compétences */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: "easeInOut" }}>
-          <SocialIcons />
-        </motion.div>
-        {/* Compétences rangées par catégorie */}
-        <motion.div
-          className="heroSkills"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          {skillGroups.map((group) => (
-            <div key={group.title} className="heroSkillGroup">
-              <h4 className="heroSkillTitle">{group.title}</h4>
-              <div className="heroSkillBadges">
-                {group.items.map((tech) => (
-                  <span key={tech} className="heroTech">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-          <NavLink to="/competences" className="heroSkillsLink">
-            {lang === "en" ? "View all skills →" : "Voir toutes les compétences →"}
-          </NavLink>
+          </a>
         </motion.div>
       </div>
     </>

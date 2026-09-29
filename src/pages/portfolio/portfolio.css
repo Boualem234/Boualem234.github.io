@@ -10,76 +10,166 @@
 
 .projectCard {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  gap: 16px;
   color: var(--text-color);
   border-radius: 12px;
-  background: linear-gradient(45deg, var(--card-bg-1) 0%, var(--card-bg-2) 60%, var(--card-bg-3) 100%);
+  background-color: var(--card-bg-2);
   border: 1px solid var(--card-border, transparent);
   box-shadow: var(--card-shadow);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   overflow: hidden;
-  position: relative;
-  transition: all 0.5s ease-in-out;
-  padding: clamp(16px, 4vw, 30px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 16px;
   cursor: pointer;
+  text-align: left;
 }
 
 .portfolio .row {
   width: 100%;
 }
 
-.textWrap {
+#projets .row {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  transition: all 0.9s ease-in-out;
-  z-index: 1;
 }
 
 .projectLink {
   text-decoration: none;
-  display: inline-block;
-}
-
-.imageContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
 }
 
-.imageContainer img {
-  max-width: 100%;
-  height: auto;
-  max-height: 220px;
-  margin-top: 12px;
-  object-fit: contain;
-  transition: all 1.3s ease-in-out;
+.projectThumb {
+  flex: 0 0 112px;
+  width: 112px;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--bg-color);
 }
 
-.tech {
+.projectThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.projectText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.projectTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.projectDate {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--secondary-text-color);
+  white-space: nowrap;
+}
+
+.projectDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--secondary-text-color);
+  margin: 0;
+}
+
+.projectRowTech {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  min-width: 0;
-  font-size: 13px;
-  white-space: normal;
-  overflow-wrap: anywhere;
+  gap: 6px;
+}
+
+.projectRowTech .technology {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.technologyMore {
+  opacity: 0.8;
 }
 
 .viewWork {
   font-size: 14px;
+  font-weight: 700;
+  color: var(--link-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.projectLink:hover .viewWork,
+.projectRow:hover .viewWork {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.projectActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.codeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--secondary-text-color);
+  padding: 6px 0;
+  min-height: 32px;
+}
+
+.codeLink:hover {
+  color: var(--hl-color);
+  text-decoration: underline;
 }
 
 .projectTitle {
-  font-size: 24px;
-  padding: 10px 0;
+  font-size: 20px;
+  line-height: 1.3;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 549px) {
+  .projectCard {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .projectThumb {
+    flex-basis: 72px;
+    width: 72px;
+  }
+
+  .projectTitle {
+    font-size: 17px;
+  }
+
+  .projectDesc {
+    font-size: 13px;
+  }
 }
 
 .projectDetails {
@@ -87,35 +177,41 @@
   border: 1px solid var(--card-border, transparent);
   border-radius: 12px;
   text-align: center;
-  padding: 24px 16px;
+  padding: 20px 16px;
   margin: 0;
-  margin-bottom: var(--spacing);
+  margin-bottom: 24px;
+}
+
+.projectDetails .row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .projectBodyContainer {
-  padding: 0 8px;
+  padding: 0;
 }
 
 .projectImage {
-  margin-bottom: var(--spacing);
+  margin-bottom: 20px;
   padding: 0px;
 }
 
 .projectBody {
-  line-height: 1.7;
+  line-height: 1.6;
   text-align: left;
   color: var(--text-color);
-  font-size: 15px;
+  font-size: 14px;
   max-width: 68ch;
 }
 
 .tech {
-  margin-bottom: var(--sm-spacing);
+  margin-bottom: 18px;
   text-align: left;
 }
 
 .paragraph {
-  margin-bottom: 1em;
+  margin-bottom: 0.85em;
   color: var(--text-color);
 }
 
@@ -123,11 +219,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .projectLinkBtn {
   margin-top: 0;
+}
+
+/* Bouton code dans la carte détail : aligné au texte, taille contenue */
+.projectDetails .projectLinks {
+  justify-content: flex-start;
+}
+
+.projectDetails .projectLinkBtn {
+  padding: 10px 22px;
+  font-size: 14px;
+  min-height: 44px;
+  width: 100%;
 }
 
 .technology {
@@ -149,48 +257,131 @@
 
 @media (min-width: 750px) {
   .projectCard {
-    flex-direction: row;
-    padding: var(--sm-spacing);
-    min-height: 350px;
-  }
-
-  .projectLink {
-    width: 100%;
+    padding: 18px 22px;
   }
 
   .projectCard:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   }
 
-  .projectCard:hover .imageContainer img {
-    scale: 1.06;
+  .projectCard:hover .projectThumb img {
+    scale: 1.05;
   }
 
-  .imageContainer {
-    transition: all 0.3s ease-in-out;
-  }
-
-  .textWrap {
-    text-shadow: none;
-  }
-
-  .projectTitle {
-    font-size: 30px;
-    padding: 10px 0;
+  .projectThumb img {
+    transition: scale 0.3s ease-in-out;
   }
 
   .viewWork {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .tech {
     font-size: 14px;
   }
+}
 
+/* --- FICHE DÉTAIL minimaliste (mobile-first) --- */
+.detailTopbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 12px auto 16px;
+}
+
+.detailBack {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--btn-bg);
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  font-size: 22px;
+  transition: transform 0.2s ease-in, background-color 0.2s ease-in;
+}
+
+.detailBack:hover {
+  transform: scale(1.06);
+  background-color: var(--btn-bg-hover);
+  border-color: var(--btn-bg-hover);
+  color: var(--btn-text);
+}
+
+.detailHeading {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px 12px;
+  flex-wrap: wrap;
+}
+
+.detailTitle {
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.detailDate {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--secondary-text-color);
+  white-space: nowrap;
+}
+
+.detailLede {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--secondary-text-color);
+  margin: 0 0 14px;
+  text-align: left;
+}
+
+.projectDetails .technology {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+/* Footer compact sur la fiche détail (composant inchangé) */
+main.portfolioDetails + footer {
+  padding: 24px 16px;
+}
+
+@media (min-width: 750px) {
   .projectDetails {
-    padding: var(--spacing);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .projectDetails .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .projectImage {
     margin-bottom: 0;
+  }
+
+  .projectImage .carouselMain {
+    aspect-ratio: 16 / 9;
+    max-height: 36vh;
+  }
+
+  .projectDetails .projectLinkBtn {
+    width: auto;
   }
 }
 
@@ -270,7 +461,7 @@ button.carouselMain:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .carouselBtn {
@@ -475,44 +666,10 @@ button.carouselMain:focus-visible {
   border-color: var(--btn-bg, var(--hl2-color));
 }
 
-.carouselDots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.carouselDot {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-}
-
-.carouselDot::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid var(--hl-color);
-  background: transparent;
-}
-
-.carouselDot.active::after {
-  background: var(--hl-color);
-}
-
 .carouselThumbs {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 14px;
   overflow-x: auto;
   padding-bottom: 4px;
 }
@@ -524,8 +681,8 @@ button.carouselMain:focus-visible {
   background: transparent;
   cursor: pointer;
   padding: 0;
-  flex: 0 0 72px;
-  height: 48px;
+  flex: 0 0 56px;
+  height: 38px;
   opacity: 0.6;
 }
 

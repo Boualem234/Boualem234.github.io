@@ -1,90 +1,86 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import LightDarkToggle from "./LightDarkToggle";
 import { useLanguage } from "../i18n/LanguageContext";
 
 /**
- * Represents navigation links and menu toggles.
- *
- * @component
+ * Navigation single-page : burger sur mobile, rangée ouverte sur desktop.
+ * Ancres avec scroll fluide + section active. Le header sticky garde
+ * la navigation visible pendant le scroll.
+ * Ordre : Accueil > Expérience > Formation > Compétences > Projets > Contact.
  */
+const SECTIONS = [
+  { id: "accueil", key: "home" },
+  { id: "experience", key: "experience" },
+  { id: "formation", key: "formation" },
+  { id: "competences", key: "competences" },
+  { id: "projets", key: "portfolio" },
+  { id: "contact", key: "contact" },
+];
 
 const NavLinks = () => {
-  // State to track whether the menu is open or closed
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState("accueil");
   const { lang, setLang, t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    if (!isHome) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [isHome, lang]);
+
+  const goTo = (e, id) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    if (!isHome) {
+      navigate(`/#${id}`);
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
-      {/* Navigation links */}
-      <nav id="main-navigation" className={`links ${isMenuOpen ? "open" : "closed"}`}>
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5, type: "spring" }}
-        >
-          {/* Home link */}
-          <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
-            {t.nav.home}
-          </NavLink>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
-        >
-          {/* Portfolio link */}
-          <NavLink to="/portfolio" onClick={() => setIsMenuOpen(false)}>
-            {t.nav.portfolio}
-          </NavLink>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.25, duration: 0.5, type: "spring" }}
-        >
-          <NavLink to="/formation" onClick={() => setIsMenuOpen(false)}>
-            {t.nav.formation}
-          </NavLink>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.22, duration: 0.5, type: "spring" }}
-        >
-          <NavLink to="/experience" onClick={() => setIsMenuOpen(false)}>
-            {t.nav.experience}
-          </NavLink>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
-        >
-          <NavLink to="/competences" onClick={() => setIsMenuOpen(false)}>
-            {t.nav.competences}
-          </NavLink>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
-        >
-          {/* Contact link */}
-          <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
-            {t.nav.contact}
-          </NavLink>
-        </motion.div>
+      <nav id="main-navigation" className={`links ${isMenuOpen ? "open" : "closed"}`} aria-label="Navigation principale">
+        {SECTIONS.map(({ id, key }, i) => {
+          const active = isHome && activeId === id;
+          return (
+            <motion.div
+              key={id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 - i * 0.03, duration: 0.4 }}
+            >
+              <a
+                href={`#${id}`}
+                onClick={(e) => goTo(e, id)}
+                className={active ? "active" : ""}
+                aria-current={active ? "true" : undefined}
+              >
+                {t.nav[key]}
+              </a>
+            </motion.div>
+          );
+        })}
       </nav>
       <div className="headerActions">
-        {/* Language toggle FR/EN */}
         <button
           className="langToggle"
           onClick={() => setLang(lang === "fr" ? "en" : "fr")}
@@ -104,9 +100,7 @@ const NavLinks = () => {
         >
           {lang === "fr" ? "EN" : "FR"}
         </button>
-        {/* Theme toggle: always visible, even on mobile with closed menu */}
         <LightDarkToggle />
-        {/* Menu toggle button (mobile only, see index.css) */}
         <button
           className="dropdown-toggle"
           onClick={() => setIsMenuOpen(!isMenuOpen)}

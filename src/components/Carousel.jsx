@@ -97,17 +97,6 @@ const Carousel = ({ images = [], alt = "Project screenshot" }) => {
           <FiChevronRight />
         </button>
       </div>
-      <div className="carouselDots">
-        {list.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`Image ${i + 1}`}
-            className={`carouselDot ${i === index ? "active" : ""}`}
-            onClick={() => setIndex(i)}
-          />
-        ))}
-      </div>
       <div className="carouselThumbs">
         {list.map((src, i) => (
           <button

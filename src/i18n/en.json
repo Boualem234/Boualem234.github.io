@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "portfolio": "Portfolio",
+    "portfolio": "Projects",
     "formation": "Education",
     "experience": "Experience",
     "competences": "Skills",
@@ -13,7 +13,7 @@
     "ctaContact": "Contact me"
   },
   "portfolioPage": {
-    "title": "Portfolio",
+    "title": "Projects",
     "description": "View my work"
   },
   "formationPage": {
@@ -67,12 +67,12 @@
     "role": "I'm a Full Stack Developer.",
     "p1": "When I have an idea in mind, I do everything to make it happen. I'm not afraid of failure - it makes me improve - but I refuse to give up.",
     "p2": "I enjoy building useful, well-structured applications, with a strong focus on security and code quality.",
-    "p3": "Beyond code, I love learning, taking on challenges and turning ideas into concrete projects.",
-    "button": "View Portfolio"
+    "p3": "Beyond code, I love learning, taking on challenges and turning ideas into concrete projects."
   },
   "project": {
     "viewCode": "View Code",
     "viewSite": "View Site",
+    "viewDetails": "View details",
     "goBack": "Go Back"
   },
   "footer": {

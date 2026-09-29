@@ -3,42 +3,13 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
-import Landing from "./pages/landing/Landing";
-import Portfolio from "./pages/portfolio/Portfolio";
+import SocialIcons from "./components/SocialIcons";
+import HomePage from "./pages/home/HomePage";
 import ProjectDetails from "./pages/portfolio/[project]/ProjectDetails";
-import Formation from "./pages/formation/Formation";
-import Experience from "./pages/experience/Experience";
-import Competences from "./pages/competences/Competences";
-import Resume from "./pages/resume/Resume";
-import Contact from "./pages/contact/Contact";
 import PageNotFound from "./pages/404/PageNotFound";
 import { useLanguage } from "./i18n/LanguageContext";
 
-/**
- * Instructions for Customizing the Portfolio
- * ------------------------------------------
- * 1. Adding Your Own Projects:
- *    - Navigate to the "_data" folder and modify the "projects.json" file to include your projects.
- *
- * 2. Replacing Project Images:
- *    - Access the "public/projectImages" directory to replace the my project images with your own.
- *
- * 3. Handling Form Submissions:
- *    - To receive form submissions, obtain an API Key. Refer to the Form component for detailed instructions.
- *
- * For Assistance or Questions:
- * -----------------------------
- * If you require assistance or have questions, don't hesitate to reach out via LinkedIn or email.
- *
- * Support and Star:
- * ------------------
- * Enjoying this project? Please consider giving it a star (🌟).
- * I'm committed to ongoing updates and feature additions.
- * Your suggestions and feedback are invaluable and highly encouraged!
- */
-
 function App() {
-  // Personal details for the user
   const personalDetails = {
     name: "El Guendouz Boualem",
     location: "Marcinelle, Belgique",
@@ -46,18 +17,13 @@ function App() {
   };
 
   const { t } = useLanguage();
-
   const location = useLocation();
-
   const [originalTitle, setOriginalTitle] = useState();
 
   useEffect(() => {
-    // Store the original document title
     if (!originalTitle) {
       setOriginalTitle(document.title);
     }
-
-    // Handle document title change when tab visibility changes
     const handleTabChange = () => {
       if (document.hidden) {
         document.title = t.tabReturn;
@@ -65,38 +31,34 @@ function App() {
         document.title = originalTitle;
       }
     };
-
-    // Listen for visibility change events
     window.addEventListener("visibilitychange", handleTabChange);
     return () => window.removeEventListener("visibilitychange", handleTabChange);
   }, [location, originalTitle, t]);
 
   return (
     <>
-      {/* Header */}
       <Header />
-      {/* Define routes */}
+      <SocialIcons className="socialDock" />
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Landing name={personalDetails.name} tagline={personalDetails.tagline} />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/formation" element={<Formation />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/competences" element={<Competences />} />
-        <Route path="/resume" element={<Resume brand={t.brand} />} />
-
         <Route
-          path="/contact"
+          path="/"
           element={
-            <Contact
+            <HomePage
               name={personalDetails.name}
               location={personalDetails.location}
               email={personalDetails.email}
             />
           }
         />
-        <Route path="/page-not-found" element={<PageNotFound />} />
         <Route path="/portfolio/:projectTitle" element={<ProjectDetails />} />
-        {/* Fallback route for unknown paths */}
+        <Route path="/page-not-found" element={<PageNotFound />} />
+        {/* Anciennes routes à onglets -> page unique */}
+        <Route path="/portfolio" element={<Navigate to="/#projets" replace />} />
+        <Route path="/experience" element={<Navigate to="/#experience" replace />} />
+        <Route path="/formation" element={<Navigate to="/#formation" replace />} />
+        <Route path="/competences" element={<Navigate to="/#competences" replace />} />
+        <Route path="/contact" element={<Navigate to="/#contact" replace />} />
+        <Route path="/resume" element={<Navigate to="/#experience" replace />} />
         <Route path="*" element={<Navigate to="/page-not-found" />} />
       </Routes>
     </>

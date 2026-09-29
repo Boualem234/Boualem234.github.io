@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { NavLink } from "react-router-dom";
-import Button from "./Button";
-import aboutMeImg from "../images/profile.jpg";
 import { useLanguage } from "../i18n/LanguageContext";
 
 /**
@@ -14,7 +11,7 @@ import { useLanguage } from "../i18n/LanguageContext";
  * @param {string} name - The name of the user.
  */
 
-const AboutMe = ({ name }) => {
+const AboutMe = () => {
   const { t } = useLanguage();
   // Using react-intersection-observer to determine if the component is in view
   const [ref, inView] = useInView({
@@ -40,22 +37,16 @@ const AboutMe = ({ name }) => {
   };
 
   return (
-    <section className="about">
+    <section className="about aboutSingle" ref={ref}>
       <div className="aboutContainer container">
         <div className="row">
-          <motion.div
-            className="personalImage col-12 col-lg-6"
-            ref={ref}
-            initial={{ x: "-10vw", opacity: 0, scale: 0.5 }}
-            animate={inView ? { x: 0, opacity: 1, scale: 1 } : { x: "-10vw", opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            whileHover={{ scale: 1.05 }}
-          >
-            {/* Display the personal image */}
-            <motion.img src={aboutMeImg} alt={name} />
-          </motion.div>
-          <div className="personalInfo col-12 col-lg-6">
-            <motion.div className="contentContainer" variants={staggerVariants}>
+          <div className="personalInfo col-12">
+            <motion.div
+              className="contentContainer"
+              variants={staggerVariants}
+              initial="initial"
+              animate={inView ? "animate" : "initial"}
+            >
               {/* Display greeting and job title with animation */}
               <motion.h4 variants={paragraphVariants}>{t.about.greeting}</motion.h4>
               <motion.h5 variants={paragraphVariants}>{t.about.role}</motion.h5>
@@ -74,11 +65,6 @@ const AboutMe = ({ name }) => {
                 <br />
                 <motion.p variants={paragraphVariants}>{t.about.p3}</motion.p>
               </motion.div>
-
-              {/* Button to view the portfolio */}
-              <NavLink to="/portfolio">
-                <Button name={t.about.button} />
-              </NavLink>
             </motion.div>
           </div>
         </div>

@@ -1,40 +1,42 @@
-import { useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiArrowLeft, FiArrowUpRight } from "react-icons/fi";
-import PageHeader from "../../../components/PageHeader";
 import PageNotFound from "../../404/PageNotFound";
 import Carousel from "../../../components/Carousel";
 import projects from "../../../_data/projects.json";
 import Footer from "../../../components/Footer";
+import { formatDate } from "../../../utils/formatDate";
 import { useLanguage } from "../../../i18n/LanguageContext";
 
 /**
- * Represents the ProjectDetails page component.
- * Displays details of a specific project.
- *
- * @component
+ * Fiche projet minimaliste : barre haute (retour, titre, date, code),
+ * galerie + infos en 2 colonnes, tient sur un écran desktop sans scroll.
  */
-
 const ProjectDetails = () => {
-  // Get the current location using React Router's useLocation hook
-  const location = useLocation();
   const { lang, t } = useLanguage();
-
-  // Scroll to the top of the page when the location changes
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
-  // Get the project title from the route parameters
   const { projectTitle } = useParams();
+
+  // Arrivée garantie en haut : avant affichage, scroll instantané
+  // (insensible au `scroll-behavior: smooth` global et aux chargements d'images).
+  useLayoutEffect(() => {
+    try {
+      window.history.scrollRestoration = "manual";
+    } catch {}
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    } catch {
+      window.scrollTo(0, 0);
+    }
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [projectTitle]);
 
   // Find the project in the data using the slug (fallback to title for old links)
   const project = projects.find(
     (project) => (project.slug || project.title.toLowerCase()) === projectTitle
   );
 
-  // If the project is not found, display the PageNotFound component
   if (!project) {
     return <PageNotFound />;
   }
@@ -46,88 +48,67 @@ const ProjectDetails = () => {
 
   return (
     <>
-      <main className="container portfolio">
-        {/* Back arrow at top left */}
+      <main className="container portfolio portfolioDetails">
+        {/* Barre haute : retour, titre + date, lien code */}
         <motion.div
-          style={{ display: "flex", justifyContent: "flex-start", width: "100%", marginTop: "30px", marginBottom: "10px" }}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          className="detailTopbar"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
         >
-          <Link to="/portfolio" aria-label={t.project.goBack} title={t.project.goBack}>
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "48px",
-                height: "48px",
-                borderRadius: "50%",
-                border: "1px solid var(--hl-color)",
-                color: "var(--text-color)",
-                fontSize: "22px",
-              }}
-            >
-              <FiArrowLeft />
-            </motion.span>
+          <Link to="/#projets" className="detailBack" aria-label={t.project.goBack} title={t.project.goBack}>
+            <FiArrowLeft />
           </Link>
+          <div className="detailHeading">
+            <h1 className="detailTitle">{displayTitle}</h1>
+            {project.date && <span className="detailDate">{formatDate(project.date, lang)}</span>}
+          </div>
         </motion.div>
-        {/* Display the page header with project title and description */}
-        <PageHeader title={displayTitle} description={displayDescription} />
-        <div className="projectDetails">
+
+        <motion.div
+          className="projectDetails"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
           <div className="row">
-            <div className="col-12 col-xl-5 projectImage">
-              {/* Carrousel d'images du projet */}
-              <Carousel images={project.images && project.images.length > 0 ? project.images : [project.image2 || project.image].filter(Boolean)} alt={displayTitle} />
+            <div className="projectImage">
+              <Carousel
+                images={
+                  project.images && project.images.length > 0
+                    ? project.images
+                    : [project.image2 || project.image].filter(Boolean)
+                }
+                alt={displayTitle}
+              />
             </div>
-            <div className="col-12 col-xl-7 projectBodyContainer">
+            <div className="projectBodyContainer">
+              <p className="detailLede">{displayDescription}</p>
               <div className="tech">
-                {/* Display project technologies with animation */}
                 {project.technologies.map((technology, i) => (
-                  <motion.span
-                    key={i}
-                    className="technology"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: "easeInOut" }}
-                  >
-                    {technology + " "}
-                  </motion.span>
+                  <span key={i} className="technology">
+                    {technology}
+                  </span>
                 ))}
               </div>
-
               <div className="projectBody">
-                {/* Display project body paragraphs with animation */}
                 {displayBody.split("\n").map((paragraph, i) => (
-                  <motion.p
-                    className="paragraph"
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.3, ease: "easeInOut" }}
-                  >
+                  <p className="paragraph" key={i}>
                     {paragraph}
-                  </motion.p>
+                  </p>
                 ))}
               </div>
 
               {project.github && (
                 <div className="projectLinks">
-                  <a
-                    className="btn projectLinkBtn"
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a className="btn projectLinkBtn" href={project.github} target="_blank" rel="noreferrer">
                     {t.project.viewCode} <FiArrowUpRight className="arrow-icon" aria-hidden="true" />
                   </a>
                 </div>
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </main>
       <Footer />
     </>

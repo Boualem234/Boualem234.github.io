@@ -1,4 +1,3 @@
-import SocialIcons from "./SocialIcons";
 import { useLanguage } from "../i18n/LanguageContext";
 
 /**
@@ -14,9 +13,6 @@ const Footer = () => {
 
   return (
     <footer>
-      {/* Social icons */}
-      <SocialIcons />
-
       {/* Signature */}
       <div className="footer-link">
         <p>

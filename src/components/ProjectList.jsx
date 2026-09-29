@@ -21,6 +21,10 @@ const ProjectList = () => {
     <ProjectCard
       key={project.id}
       title={lang === "en" ? project.title_en || project.title : project.title_fr || project.title}
+      description={lang === "en" ? project.description_en || project.description : project.description_fr || project.description}
+      date={project.date}
+      technologies={project.technologies || []}
+      github={project.github}
       slug={project.slug || project.title.toLowerCase()}
       image={project.image}
       id={project.id}

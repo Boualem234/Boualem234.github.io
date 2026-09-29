@@ -1,45 +1,70 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { FiArrowUpRight } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import Image from "./Image";
+import { formatDate } from "../utils/formatDate";
 import { useLanguage } from "../i18n/LanguageContext";
 
-/**
- * Represents a project card component.
- *
- * Gentle entrance on page load (staggered, no scroll dependency):
- * all projects visible at once.
- * Layout handled by portfolio.css (no Bootstrap utilities dependency).
- *
- * @component
- * @param {string} title - The title of the project.
- * @param {string} image - The image source for the project thumbnail.
- * @param {number} id - The unique identifier of the project.
- * @param {number} index - The position in the list (stagger delay).
- */
+const MAX_TECH = 4;
 
-const ProjectCard = ({ title, image, id, slug, index = 0 }) => {
-  const { lang } = useLanguage();
+/**
+ * Ligne projet minimaliste : miniature, titre, description, date,
+ * 4 technos max, lien détails + lien code direct (sans ouvrir la fiche).
+ */
+const ProjectCard = ({ title, description, date, technologies = [], image, id, slug, github, index = 0 }) => {
+  const { lang, t } = useLanguage();
+  const navigate = useNavigate();
+  const shown = technologies.slice(0, MAX_TECH);
+  const extra = technologies.length - shown.length;
+  const to = `/portfolio/${slug || title.toLowerCase()}`;
 
   return (
-    <Link to={`/portfolio/${slug || title.toLowerCase()}`} key={id} className="projectLink col-12 col-lg-4">
-      <motion.div
-        className="projectCard"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: Math.min(index, 8) * 0.07, ease: "easeOut" }}
-      >
-        <div className="textWrap">
+    <motion.article
+      className="projectCard projectRow"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.35, delay: Math.min(index, 8) * 0.05, ease: "easeOut" }}
+      onClick={() => navigate(to)}
+    >
+      <div className="projectThumb" aria-hidden="true">
+        <Image src={image} alt="" />
+      </div>
+      <div className="projectText">
+        <div className="projectTop">
           <h3 className="projectTitle">{title}</h3>
-          <span className="viewWork">
-            {lang === "fr" ? "Voir" : "View Work"} <FiArrowUpRight />
-          </span>
+          {date && <span className="projectDate">{formatDate(date, lang)}</span>}
         </div>
-        <div className="imageContainer">
-          <Image src={image} alt="Laptop displaying the application" />
+        {description && <p className="projectDesc">{description}</p>}
+        {shown.length > 0 && (
+          <div className="projectRowTech">
+            {shown.map((tech, i) => (
+              <span key={i} className="technology">
+                {tech}
+              </span>
+            ))}
+            {extra > 0 && <span className="technology technologyMore">+{extra}</span>}
+          </div>
+        )}
+        <div className="projectActions">
+          <Link to={to} className="viewWork" onClick={(e) => e.stopPropagation()}>
+            {t.project.viewDetails} <FiArrowUpRight />
+          </Link>
+          {github && (
+            <a
+              className="codeLink"
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              aria-label={`${t.project.viewCode} - ${title}`}
+            >
+              <FiGithub aria-hidden="true" /> Code
+            </a>
+          )}
         </div>
-      </motion.div>
-    </Link>
+      </div>
+    </motion.article>
   );
 };
 

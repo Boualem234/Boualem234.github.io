@@ -65,12 +65,21 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 #root {
   height: 100%;
   background-color: var(--bg-color);
-  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: clip;
+  /* Compense le header fixe : mobile 16*2+48 = 80px */
+  padding-top: 80px;
 }
 
 .container {
@@ -126,6 +135,42 @@ li {
 .socialIcons .icon:hover {
   scale: 1.2;
   color: var(--hl-color);
+}
+
+/* Pastille sociale fixe en bas à gauche (GitHub / LinkedIn) */
+.socialDock {
+  position: fixed;
+  left: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 900;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background-color: var(--bg2-color);
+  border: 1px solid var(--card-border, rgba(0, 184, 148, 0.25));
+  box-shadow: var(--card-shadow);
+}
+
+.socialDock .icon {
+  border-radius: 50%;
+  transition: transform 0.2s ease-in, color 0.2s ease-in, background-color 0.2s ease-in;
+}
+
+.socialDock .icon:hover {
+  transform: translateY(-2px);
+  background-color: var(--tech-bg, transparent);
+}
+
+@media (min-width: 750px) {
+  .socialDock {
+    left: 24px;
+    bottom: 24px;
+    flex-direction: column;
+    padding: 8px 4px;
+  }
 }
 
 .btn {
@@ -193,11 +238,90 @@ img {
   animation: fadeInAnimation 0.5s ease-in;
 }
 
+/* --- SINGLE PAGE (ancres) --- */
+.singlePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: clip;
+}
+
+.homeSection {
+  scroll-margin-top: 88px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header fixe desktop (108px) : les ancres arrivent en dessous */
+@media (min-width: 750px) {
+  .homeSection {
+    scroll-margin-top: 116px;
+  }
+}
+
+/* Header fixe mobile (~80px) : les ancres arrivent en dessous */
+@media (max-width: 749px) {
+  .homeSection {
+    scroll-margin-top: 90px;
+  }
+}
+
+.homeSection .infoList,
+.homeSection .skillsGrid,
+.homeSection .row,
+.homeSection .contactWrap {
+  width: 100%;
+}
+
+.homeHero {
+  padding-top: 24px;
+  min-height: calc(100dvh - 93px);
+  justify-content: flex-start;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutSingle {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.aboutSingle .aboutContainer {
+  margin-bottom: 0;
+}
+
+.aboutSingle .personalInfo {
+  max-width: 68ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aboutSingle .contentDescription {
+  text-align: left;
+}
+
 /* --- MOBILE STYLES --- */
 
-/* --- HEADER ---  */
+/* --- HEADER (fixe : reste visible pendant le scroll) ---  */
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--bg-color);
   padding: 16px;
   color: var(--text-color);
   display: flex;
@@ -208,6 +332,11 @@ header {
 }
 
 @media (min-width: 750px) {
+  #root {
+    /* Header desktop : 30*2+48 = 108px */
+    padding-top: 108px;
+  }
+
   header {
     padding: var(--sm-spacing) var(--spacing);
     margin-left: 10px;
@@ -241,6 +370,10 @@ header {
 }
 
 .links a:hover {
+  color: var(--hl-color);
+}
+
+.links a.active {
   color: var(--hl-color);
 }
 
@@ -278,10 +411,6 @@ header {
   background-color: var(--btn-bg-hover);
   border-color: var(--btn-bg-hover);
   color: var(--btn-text);
-}
-
-.links .closed {
-  background-color: transparent;
 }
 
 .toggleMode {
@@ -333,22 +462,21 @@ footer .footer-link:hover {
   color: var(--link-hover);
 }
 
-footer .socialIcons {
-  padding-top: 10px;
-}
-
 /* --- MEDIA QUERIES --- */
 @media (min-width: 750px) {
   .links {
     display: flex;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    order: 0;
+    flex-basis: auto;
+    width: auto;
+    overflow: visible;
     background-color: var(--bg-color);
     justify-content: flex-end;
     align-items: center;
-    position: relative;
-    top: auto;
-    width: auto;
-    left: auto;
-    right: auto;
     padding: 0 10px;
   }
 
@@ -358,14 +486,12 @@ footer .socialIcons {
     min-height: 44px;
     padding: 10px 4px;
     margin-left: 3px;
+    font-size: 15px;
+    border-bottom: none;
   }
 
   .links div:not(:last-child) {
     margin-right: 20px;
-  }
-
-  .links.open {
-    display: flex;
   }
 
   .dropdown-toggle {

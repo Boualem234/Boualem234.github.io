@@ -1,156 +1,61 @@
 /* --- MOBILE STYLES --- */
 
-.landing {
+.homeHero {
   position: relative;
 }
 
-.landing .textContainer {
+.homeHero .textContainer {
   width: 100%;
 }
 
-.landing .name {
+.homeHero .name {
   font-size: clamp(30px, 9vw, 44px);
   letter-spacing: -1px;
   line-height: 1.15;
   overflow-wrap: break-word;
 }
-.landing .description {
+.homeHero .description {
   font-size: 17px;
   letter-spacing: 0.5px;
   line-height: 1.5;
 }
 
-.landing .profileAvatar {
-  width: 112px;
-  height: 112px;
+.homeHero .profileAvatar {
+  width: 96px;
+  height: 96px;
+  aspect-ratio: 1;
+  object-position: center;
   margin-top: 8px;
 }
 
-.landing .socialIcons {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  position: fixed;
-  left: 24px;
-  bottom: 24px;
-  z-index: 500;
-  padding: 6px;
-  border-radius: 999px;
-  background-color: var(--bg2-color);
-  border: 1px solid var(--card-border, rgba(0, 184, 148, 0.25));
-  box-shadow: var(--card-shadow);
-}
-
-.landing .socialIcons .icon {
-  border-radius: 50%;
-  transition: transform 0.2s ease-in, color 0.2s ease-in, background-color 0.2s ease-in;
-}
-
-.landing .socialIcons .icon:hover {
-  transform: translateY(-2px);
-  background-color: var(--tech-bg, transparent);
-}
-
-.landing .heroCta {
+.homeHero .heroCta {
   width: 100%;
 }
 
-.landing .heroCta .btn {
+.homeHero .heroCta .btn {
   width: 100%;
   max-width: 320px;
-}
-
-.heroSkills {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 24px;
-  width: 100%;
-  max-width: 760px;
-}
-
-.heroSkillGroup {
-  background: linear-gradient(135deg, var(--card-bg-1) 0%, var(--card-bg-2) 60%, var(--card-bg-3) 100%);
-  border: 1px solid var(--card-border, rgba(0, 184, 148, 0.25));
-  box-shadow: var(--card-shadow);
-  border-radius: 12px;
-  padding: 14px 16px;
-  text-align: left;
-}
-
-.heroSkillTitle {
-  color: var(--accent-strong);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.heroSkillBadges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.heroTech {
-  border: 1px solid var(--hl-color);
-  border-radius: 20px;
-  color: var(--text-color);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  line-height: 1.5;
-  padding: 6px 14px;
-  background-color: var(--tech-bg, var(--bg2-color));
-}
-
-.heroSkillsLink {
-  color: var(--link-color);
-  font-size: 15px;
-  font-weight: 700;
-  margin-top: 4px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.heroSkillsLink:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
 }
 
 /* --- MEDIA QUERIES --- */
 
 @media (min-width: 750px) {
-  .landing .name {
+  .homeHero .name {
     font-size: clamp(44px, 7vw, 70px);
   }
 
-  .landing .description {
+  .homeHero .description {
     font-size: clamp(20px, 3vw, 32px);
   }
 
-  .landing .profileAvatar {
-    width: 170px;
-    height: 170px;
+  .homeHero .profileAvatar {
+    width: 128px;
+    height: 128px;
     margin-top: 0;
   }
 
-  .landing .socialIcons {
-    left: 50px;
-    bottom: 20px;
-    flex-direction: column;
-  }
-
-  .landing .heroCta .btn {
+  .homeHero .heroCta .btn {
     width: auto;
     max-width: none;
-  }
-
-  .heroSkills {
-    grid-template-columns: 1fr 1fr;
   }
 }

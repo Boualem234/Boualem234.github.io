@@ -82,9 +82,6 @@
   text-decoration: none;
   color: var(--text-color);
 }
-.contentContainer .btn {
-  margin-top: var(--sm-spacing);
-}
 
 .arrow-icon {
   font-size: 20px;

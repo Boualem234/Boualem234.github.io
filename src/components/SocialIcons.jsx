@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
 /**
- * Represents a component displaying social media icons.
- *
- * This component displays social media icons with animation effects.
+ * Icônes sociales GitHub / LinkedIn.
+ * Utilisé comme pastille fixe en bas à gauche (className="socialDock").
  *
  * @component
+ * @param {string} className - Classe additionnelle pour le positionnement.
  */
 
-const SocialIcons = () => {
+const SocialIcons = ({ className = "" }) => {
   // Define styles for the icons
   const styles = {
     icon: {
@@ -20,8 +20,15 @@ const SocialIcons = () => {
   };
 
   return (
-    <div className="socialIcons" style={styles.socialIcons}>
-      <a className="icon" style={styles.icon} href="https://github.com/Boualem234">
+    <div className={`socialIcons ${className}`.trim()}>
+      <a
+        className="icon"
+        style={styles.icon}
+        href="https://github.com/Boualem234"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Profil GitHub de El Guendouz Boualem"
+      >
         {/* GitHub Icon */}
         <motion.i
           initial={{ y: 100, opacity: 0 }}
@@ -32,10 +39,17 @@ const SocialIcons = () => {
           title="El Guendouz Boualem GitHub Profile"
         ></motion.i>
       </a>
-      <a className="icon" style={styles.icon} href="https://www.linkedin.com/in/elguendouz-boualem/">
+      <a
+        className="icon"
+        style={styles.icon}
+        href="https://www.linkedin.com/in/elguendouz-boualem/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Profil LinkedIn de El Guendouz Boualem"
+      >
         {/* LinkedIn Icon */}
         <motion.i
-          initial={{ y1: 100, opacity: 0 }}
+          initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
           className="fa-brands fa-linkedin"
