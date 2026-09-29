@@ -70,6 +70,31 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Filet en haut de chaque carte : aligné partout, aucun décalage */
+.contactSingle .listInfo > li {
+  width: 100%;
+  border-top: 2px solid var(--grey);
+  padding-top: 16px;
+}
+
+.contactSingle .personalContactInfo {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.contactSingle .infoIcon {
+  width: auto;
+}
+
+.contactSingle .mediaWrap {
+  border-left: none;
+  padding: 0;
 }
 
 .contactMailBtn {
@@ -97,7 +122,6 @@ ul {
   }
 
   .contactSingle .personalContactInfo {
-    flex-direction: column;
     align-items: center;
     text-align: center;
     height: 100%;
@@ -109,9 +133,8 @@ ul {
   }
 
   .contactSingle .mediaWrap {
-    border-left: none;
-    border-top: 2px solid var(--grey);
-    padding: 16px 12px 0;
+    border: none;
+    padding: 0;
   }
 }
 
