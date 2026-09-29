@@ -34,26 +34,12 @@
   },
   "contactPage": {
     "title": "Contact",
-    "description": "Contactez-moi"
+    "description": "Contactez-moi",
+    "writeMe": "M'écrire"
   },
   "resumePage": {
     "title": "Parcours",
     "description": "Découvrez mon expertise"
-  },
-  "form": {
-    "title": "Envoyer un message",
-    "name": "Nom",
-    "nameError": "Veuillez entrer votre nom",
-    "email": "Email",
-    "emailError": "Veuillez entrer un email valide",
-    "subject": "Sujet",
-    "subjectError": "Veuillez entrer un sujet",
-    "message": "Message",
-    "messageError": "Veuillez entrer un message",
-    "send": "Envoyer",
-    "sending": "Envoi en cours...",
-    "sent": "Message envoyé",
-    "retry": "Réessayer"
   },
   "contactInfo": {
     "title": "Recrutez-moi",

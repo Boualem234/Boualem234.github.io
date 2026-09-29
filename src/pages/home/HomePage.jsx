@@ -6,7 +6,6 @@ import Hero from "../../components/Hero";
 import AboutMe from "../../components/AboutMe";
 import SectionHeader from "../../components/SectionHeader";
 import ProjectList from "../../components/ProjectList";
-import Form from "../../components/Form";
 import ContactInfo from "../../components/ContactInfo";
 import Footer from "../../components/Footer";
 import experience from "../../_data/experience.json";
@@ -135,18 +134,14 @@ const HomePage = ({ name, location, email }) => {
           </div>
         </section>
 
-        {/* CONTACT */}
+        {/* CONTACT : infos + bouton mailto, sans service tiers */}
         <section id="contact" className="homeSection">
           <SectionHeader title={t.contactPage.title} description={t.contactPage.description} />
-          <div className="contactWrap">
-            <div className="row">
-              <div className="col-12 col-lg-6">
-                <Form />
-              </div>
-              <div className="col-12 col-lg-6">
-                <ContactInfo name={name} location={location} email={email} />
-              </div>
-            </div>
+          <div className="contactWrap contactSingle">
+            <ContactInfo name={name} location={location} email={email} />
+            <a className="btn contactMailBtn" href={`mailto:${email}`}>
+              {t.contactPage.writeMe}
+            </a>
           </div>
         </section>
       </main>

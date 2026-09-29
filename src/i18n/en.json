@@ -34,26 +34,12 @@
   },
   "contactPage": {
     "title": "Contact",
-    "description": "Get in touch"
+    "description": "Get in touch",
+    "writeMe": "Email me"
   },
   "resumePage": {
     "title": "Resume",
     "description": "Discover my expertise"
-  },
-  "form": {
-    "title": "Send a Message",
-    "name": "Name",
-    "nameError": "Please enter your name",
-    "email": "Email",
-    "emailError": "Please enter a valid email",
-    "subject": "Subject",
-    "subjectError": "Please enter a subject",
-    "message": "Message",
-    "messageError": "Please enter a message",
-    "send": "Send Message",
-    "sending": "Please wait...",
-    "sent": "Message Sent",
-    "retry": "Try again"
   },
   "contactInfo": {
     "title": "Hire me",
@@ -88,5 +74,5 @@
     "button": "Return to Home"
   },
   "brand": "When I have an idea in mind, I do everything to make it happen. I'm not afraid of failure - it makes me improve - but I refuse to give up.",
-  "tabReturn": "👋🏻 Git pulling you back in!"
+  "tabReturn": "Come back soon! 👋"
 }
