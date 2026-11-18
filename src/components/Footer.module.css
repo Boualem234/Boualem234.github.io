@@ -12,8 +12,27 @@
   gap: 20px;
 }
 
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .name {
   font-weight: 600;
+}
+
+.credit {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.credit a {
+  transition: color 0.25s;
+}
+
+.credit a:hover {
+  color: var(--accent);
 }
 
 .links {

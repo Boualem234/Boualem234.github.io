@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2023 Michael Yeates
 Copyright (c) 2026 Boualem El Guendouz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

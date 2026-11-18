@@ -89,6 +89,12 @@ Mise en place et dépannage : voir [DEPLOIEMENT.md](DEPLOIEMENT.md).
 
 Le site est un site utilisateur GitHub Pages servi à la racine (`base: "/"` dans `vite.config.ts`). `public/404.html` redirige les URL profondes (`/projets/...`) vers l'application pour que le routage fonctionne sur GitHub Pages.
 
+## Crédits
+
+Le design initial et l'inspiration viennent de [my-portfolio](https://github.com/mdyeates/my-portfolio) de [Michael Yeates](https://michaelyeates.co.uk), publié sous licence MIT.
+
+Le code de ce site a été réécrit en React 19 + TypeScript + Vite ; les textes, les projets et les visuels sont ceux de Boualem El Guendouz.
+
 ## Licence
 
 MIT — voir [LICENSE.md](LICENSE.md).

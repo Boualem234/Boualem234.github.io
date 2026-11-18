@@ -301,17 +301,6 @@
   fill: var(--text-muted);
 }
 
-.badgeIcon {
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-}
-
-.badgeScissors {
-  width: 46px;
-  transform: rotate(-35deg);
-}
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -422,10 +411,6 @@
     bottom: 32px;
     width: 112px;
     height: 112px;
-  }
-
-  .badgeScissors {
-    width: 38px;
   }
 
   .scroll {

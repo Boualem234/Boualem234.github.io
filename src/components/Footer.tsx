@@ -13,7 +13,14 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
-        <p className={styles.name}>© {new Date().getFullYear()} {profile.fullName}</p>
+        <div className={styles.identity}>
+          <p className={styles.name}>© {new Date().getFullYear()} {profile.fullName}</p>
+          <p className={styles.credit}>
+            <a href="https://github.com/mdyeates/my-portfolio" target="_blank" rel="noreferrer">
+              <Stable text={both((u) => u.footer.credit)} />
+            </a>
+          </p>
+        </div>
         <nav className={styles.links} aria-label={t.a11y.footerNav}>
           <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <TbBrandLinkedin aria-hidden="true" />

@@ -157,6 +157,7 @@ const fr = {
   },
   footer: {
     top: "Haut de page",
+    credit: "Design inspiré de Michael Yeates",
   },
   boost: "Progression de lecture — revenir en haut",
   goal: { title: "GOAL!", sub: "Calculated." },
@@ -334,6 +335,7 @@ const en: UiStrings = {
   },
   footer: {
     top: "Back to top",
+    credit: "Design inspired by Michael Yeates",
   },
   boost: "Reading progress — back to top",
   goal: { title: "GOAL!", sub: "Calculated." },

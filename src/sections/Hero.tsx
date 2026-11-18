@@ -113,9 +113,6 @@ function Portrait({ alt, badge, ready }: { alt: string; badge: string; ready: bo
             </textPath>
           </text>
         </svg>
-        <span className={styles.badgeIcon}>
-          <Scissors className={styles.badgeScissors} />
-        </span>
       </motion.div>
     </div>
   );
