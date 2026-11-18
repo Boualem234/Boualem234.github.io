@@ -1,0 +1,229 @@
+/* Les animations se déclenchent via la classe `.play` posée sur la carte parente
+   (au survol, ou une fois à l'apparition sur écrans tactiles). */
+
+.icon {
+  width: 112px;
+  height: 112px;
+  color: var(--text);
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Coiffure ---------- */
+.hair {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hairScissors {
+  width: 96px;
+  transform: rotate(-28deg);
+  color: var(--text);
+}
+
+.strand {
+  position: absolute;
+  top: 38%;
+  left: 72%;
+  width: 12px;
+  height: 7px;
+  border: 2.5px solid var(--accent);
+  border-color: var(--accent) transparent transparent transparent;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.strand:nth-child(3) {
+  left: 78%;
+  top: 30%;
+}
+
+.strand:nth-child(4) {
+  left: 66%;
+  top: 44%;
+}
+
+:global(.play) .hairScissors g {
+  animation: snipA 0.28s ease-in-out 4 alternate;
+}
+
+:global(.play) .hairScissors g + g {
+  animation-name: snipB;
+}
+
+:global(.play) .strand {
+  animation: fall 1.2s ease-in forwards;
+}
+
+:global(.play) .strand:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+:global(.play) .strand:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+@keyframes snipA {
+  from {
+    transform: rotate(-18deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes snipB {
+  from {
+    transform: rotate(18deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-10px, 46px) rotate(140deg);
+  }
+}
+
+/* ---------- Musculation ---------- */
+.ground {
+  stroke: var(--line-strong);
+}
+
+.bar {
+  stroke-width: 4;
+}
+
+.plate {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.plateSmall {
+  fill: var(--text);
+  stroke: var(--text);
+}
+
+/* Au repos, la barre est posée au sol, au centre de la pastille */
+.barbell {
+  transform: translateY(8px);
+}
+
+.reps {
+  fill: var(--accent);
+  stroke: none;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0;
+}
+
+:global(.play) .barbell {
+  animation: press 0.9s var(--ease-in-out) 3;
+}
+
+:global(.play) .reps {
+  animation: show 2.7s ease forwards;
+}
+
+@keyframes press {
+  0%,
+  100% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes show {
+  10%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Lecture ---------- */
+.page {
+  fill: var(--bg-elev-2);
+}
+
+.lines {
+  stroke-width: 2;
+  stroke: var(--text-dim);
+}
+
+.spine {
+  stroke-width: 2;
+}
+
+.flip {
+  fill: var(--accent);
+  stroke: var(--accent);
+  transform-box: view-box;
+  transform-origin: 60px 60px;
+  opacity: 0;
+}
+
+:global(.play) .flip {
+  animation: flip 1.1s var(--ease-in-out) 2;
+}
+
+@keyframes flip {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+}
+
+/* ---------- Famille ---------- */
+.house {
+  stroke-width: 3.5;
+}
+
+.heart {
+  fill: var(--accent);
+  stroke: var(--accent);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+:global(.play) .heart {
+  animation: beat 0.9s ease-in-out 3;
+}
+
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.22);
+  }
+  30% {
+    transform: scale(0.96);
+  }
+  45% {
+    transform: scale(1.14);
+  }
+}

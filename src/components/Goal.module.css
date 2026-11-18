@@ -1,0 +1,42 @@
+.goal {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  pointer-events: none;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  position: relative;
+  font-size: clamp(88px, 22vw, 280px);
+  font-weight: 800;
+  font-stretch: 75%;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  background: var(--boost);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 40px rgb(255 107 53 / 0.5));
+}
+
+.sub {
+  position: relative;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgb(59 130 246 / 0.18);
+  border: 1px solid rgb(96 165 250 / 0.5);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: #bfdbfe;
+}

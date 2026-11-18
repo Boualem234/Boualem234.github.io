@@ -1,0 +1,76 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  pointer-events: none;
+}
+
+.half {
+  position: absolute;
+  inset: 0 0 50% 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  will-change: transform;
+}
+
+.bottom {
+  inset: 50% 0 0 0;
+  justify-content: flex-start;
+}
+
+.motifs {
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 40px);
+  margin-bottom: clamp(24px, 6vh, 56px);
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.motif {
+  display: grid;
+  place-items: center;
+  color: var(--text-dim);
+  opacity: 0.18;
+}
+
+.label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px var(--gutter);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.counter {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Jauge le long de la ligne de séparation */
+.track {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 50%;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 3px;
+  background: rgb(255 255 255 / 0.08);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--boost);
+  box-shadow: 0 0 18px rgb(255 107 53 / 0.55);
+  transform-origin: left center;
+  transform: scaleX(0);
+}

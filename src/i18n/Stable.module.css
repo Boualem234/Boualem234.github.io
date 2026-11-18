@@ -1,0 +1,21 @@
+.stack {
+  display: inline-grid;
+}
+
+.block {
+  display: grid;
+}
+
+/* Toutes les versions occupent la même case de grille */
+.stack > * {
+  grid-area: 1 / 1;
+}
+
+/* Libellé court : si l'autre langue prend deux lignes, le texte visible reste centré */
+.stack:not(.block) > * {
+  align-self: center;
+}
+
+.ghost {
+  visibility: hidden;
+}

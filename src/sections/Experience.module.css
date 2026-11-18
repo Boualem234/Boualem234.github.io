@@ -1,0 +1,262 @@
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+
+.role {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.roleTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.roleMeta {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.introText {
+  margin-top: 24px;
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.stackLabel {
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stack li {
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* ---------- Captures réelles ---------- */
+.shots {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  display: grid;
+  gap: 18px;
+}
+
+.shotsLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.shot button {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+  border-radius: 14px;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.shot button:hover {
+  transform: translateY(-4px);
+}
+
+.zoom {
+  position: absolute;
+  top: 46px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgb(11 11 12 / 0.75);
+  color: var(--text);
+  font-size: 17px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.shot button:hover .zoom,
+.shot button:focus-visible .zoom {
+  opacity: 1;
+}
+
+.shot figcaption {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.shotIndex {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--accent);
+}
+
+/* ---------- Réalisations ---------- */
+.highlights {
+  margin-top: clamp(80px, 10vw, 140px);
+}
+
+.highlightsTitle {
+  margin-bottom: 28px;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.035em;
+}
+
+.highlightList {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.highlight {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  transition:
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+.highlight:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.highlight:hover {
+  border-color: var(--accent-line);
+  background: var(--bg-elev-2);
+}
+
+.highlightIndex {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.highlight h4 {
+  font-size: 21px;
+  letter-spacing: -0.025em;
+}
+
+.highlight p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.cta {
+  margin-top: 32px;
+}
+
+/* ---------- Avant ça ---------- */
+.other {
+  margin-top: clamp(64px, 8vw, 104px);
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.otherLabel {
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.otherRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 24px;
+}
+
+.otherRole {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.otherCompany {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.otherMeta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  align-self: center;
+}
+
+.otherText {
+  grid-column: 1 / -1;
+  max-width: 720px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1000px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+
+  .shots {
+    position: static;
+  }
+
+  .highlightList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .highlight,
+  .highlight:nth-child(n + 4) {
+    grid-column: span 1;
+  }
+
+  .highlight:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .highlightList {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight {
+    padding: 22px;
+  }
+
+  .otherRow {
+    grid-template-columns: 1fr;
+  }
+}

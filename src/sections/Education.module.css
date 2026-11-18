@@ -1,0 +1,221 @@
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  display: flex;
+  gap: 18px;
+  padding: clamp(22px, 2.6vw, 30px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+}
+
+.icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 22px;
+}
+
+.itemBody {
+  min-width: 0;
+}
+
+.period {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.badge,
+.badgeOk {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+}
+
+.badgeOk {
+  border-color: rgb(61 220 151 / 0.4);
+  background: rgb(61 220 151 / 0.1);
+  color: var(--ok);
+}
+
+.item h3 {
+  margin-top: 12px;
+  font-size: clamp(21px, 2vw, 26px);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.degree {
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.place {
+  margin-top: 2px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Vol ---------- */
+.flight {
+  position: relative;
+  padding: clamp(18px, 2.4vw, 28px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 30%, rgb(255 107 53 / 0.1), transparent 70%),
+    var(--bg-elev);
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.dot {
+  fill: rgb(255 255 255 / 0.08);
+}
+
+.arcTrack {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 7;
+}
+
+.arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgb(255 107 53 / 0.6));
+}
+
+.pin {
+  fill: var(--accent);
+  stroke: var(--bg);
+  stroke-width: 3;
+}
+
+.pulse {
+  fill: rgb(255 107 53 / 0.18);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ripple 2.4s var(--ease-out) infinite;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.ocean {
+  font-size: 30px;
+  fill: var(--text-dim);
+  opacity: 0.55;
+}
+
+.city {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 700;
+  fill: var(--text);
+}
+
+.coords {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--text-dim);
+}
+
+.plane {
+  fill: var(--text);
+}
+
+/* Mobile : textes agrandis dans le cadrage compact */
+.mapCompact .city {
+  font-size: 30px;
+}
+
+.mapCompact .coords {
+  font-size: 18px;
+}
+
+.mapCompact .ocean {
+  font-size: 34px;
+}
+
+.distance {
+  position: absolute;
+  left: clamp(18px, 2.4vw, 28px);
+  top: clamp(16px, 2vw, 24px);
+  display: grid;
+  gap: 2px;
+}
+
+.km {
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 800;
+  font-stretch: 88%;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.km :global(.serif) {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.distanceLabel {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .distance {
+    position: static;
+    margin-top: 8px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    flex-direction: column;
+  }
+}

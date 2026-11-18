@@ -1,0 +1,53 @@
+/* Spécificité nulle : la classe passée par le parent définit la taille. */
+:where(.scissors) {
+  width: 64px;
+  height: auto;
+  overflow: visible;
+}
+
+.bladeA,
+.bladeB {
+  transform-box: view-box;
+  transform-origin: 26px 20px;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.pivot {
+  fill: var(--bg);
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.open .bladeA {
+  transform: rotate(-16deg);
+}
+
+.open .bladeB {
+  transform: rotate(16deg);
+}
+
+.snip .bladeA {
+  animation: snipA 0.3s ease-in-out infinite alternate;
+}
+
+.snip .bladeB {
+  animation: snipB 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes snipA {
+  from {
+    transform: rotate(-18deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes snipB {
+  from {
+    transform: rotate(18deg);
+  }
+  to {
+    transform: rotate(1deg);
+  }
+}

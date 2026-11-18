@@ -1,0 +1,86 @@
+/* Une ligne de quatre pastilles de même largeur : icône animée + nom */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+  padding: 10px 24px 10px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  transition:
+    border-color 0.35s,
+    background-color 0.35s,
+    transform 0.5s var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--accent-line);
+  background: var(--bg-elev-2);
+  transform: translateY(-3px);
+}
+
+.art {
+  position: relative;
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 60%, rgb(255 107 53 / 0.14), transparent 70%),
+    rgb(255 255 255 / 0.02);
+  border: 1px solid var(--line);
+}
+
+/* L'illustration (112 px) est centrée puis réduite pour tenir dans la pastille */
+.art > * {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: none;
+  transform: translate(-50%, -50%) scale(0.66);
+}
+
+.card h3 {
+  min-width: 0;
+  font-size: clamp(19px, 1.7vw, 24px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    gap: 10px;
+    padding: 8px 12px 8px 8px;
+  }
+
+  .art {
+    width: 52px;
+    height: 52px;
+  }
+
+  .art > * {
+    transform: translate(-50%, -50%) scale(0.42);
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,44 @@
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  animation: scroll var(--duration) linear infinite;
+}
+
+.reverse .group {
+  animation-direction: reverse;
+}
+
+.marquee:hover .group {
+  animation-play-state: paused;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  margin-inline: 0.6em;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group {
+    animation: none;
+  }
+}

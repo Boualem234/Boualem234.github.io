@@ -1,0 +1,113 @@
+.page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding-top: var(--header-h);
+}
+
+.inner {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.code {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.04em;
+  font-size: clamp(120px, 24vw, 280px);
+  font-weight: 800;
+  font-stretch: 85%;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+}
+
+/* Le ballon rebondit au-dessus de son ombre */
+.court {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: 0.62em;
+  height: 0.8em;
+}
+
+.ball {
+  position: absolute;
+  bottom: 0.04em;
+  width: 0.6em;
+  height: 0.6em;
+  transform-origin: center bottom;
+  animation: bounce 1.1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.ballFill {
+  fill: var(--accent);
+}
+
+.seams {
+  fill: none;
+  stroke: var(--bg);
+  stroke-width: 4;
+}
+
+.shadow {
+  position: absolute;
+  bottom: -0.02em;
+  width: 0.5em;
+  height: 0.06em;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.6);
+  box-shadow: 0 0 20px rgb(255 107 53 / 0.25);
+  animation: shadow 1.1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 2.2s linear infinite;
+}
+
+/* Écrasé au contact du sol, rond en l'air */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.08, 0.9);
+  }
+  12%,
+  88% {
+    transform: translateY(-0.06em) scale(1);
+  }
+  50% {
+    transform: translateY(-0.38em) scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shadow {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(0.55);
+    opacity: 0.4;
+  }
+}
+
+.title {
+  max-width: 640px;
+  font-size: clamp(32px, 4.4vw, 56px);
+  letter-spacing: -0.035em;
+}
+
+.text {
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}

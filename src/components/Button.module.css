@@ -1,0 +1,76 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out);
+}
+
+/* Remplissage qui monte depuis le bas au survol */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.45s var(--ease-out);
+}
+
+.button:hover::before {
+  transform: translateY(0);
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.primary::before {
+  background: var(--text);
+}
+
+.ghost {
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+}
+
+.ghost::before {
+  background: var(--text);
+}
+
+.ghost:hover {
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.label {
+  position: relative;
+  text-align: center;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.arrow:hover .icon {
+  transform: translateX(4px);
+}
+
+.drop:hover .icon {
+  transform: translateY(2px);
+}

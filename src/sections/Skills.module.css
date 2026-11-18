@@ -1,0 +1,161 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: clamp(22px, 2.6vw, 32px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Halo qui suit le curseur */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(255 107 53 / 0.13), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: var(--line-strong);
+}
+
+.backend {
+  grid-column: span 7;
+}
+
+.frontend {
+  grid-column: span 5;
+}
+
+.data {
+  grid-column: span 5;
+}
+
+.devops {
+  grid-column: span 7;
+}
+
+.languages {
+  grid-column: span 12;
+}
+
+.head h3 {
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.skills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 11px;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: rgb(255 255 255 / 0.02);
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    transform 0.25s var(--ease-out);
+}
+
+.skills li svg {
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: color 0.25s;
+}
+
+.skills li:hover {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.skills li:hover svg {
+  color: var(--accent);
+}
+
+/* Langues : échelle CECR */
+.langList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 32px;
+  margin-top: auto;
+}
+
+.langList li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px 12px;
+}
+
+.langName {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.langScale {
+  grid-column: 1 / -1;
+  order: 3;
+  display: flex;
+  gap: 5px;
+}
+
+.langScale span {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 0.08);
+}
+
+.langScale .on {
+  background: var(--boost);
+}
+
+.langLevel {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-align: right;
+  color: var(--accent);
+}
+
+@media (max-width: 1000px) {
+  .backend,
+  .frontend,
+  .data,
+  .devops {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 720px) {
+  .langList {
+    grid-template-columns: 1fr;
+  }
+}

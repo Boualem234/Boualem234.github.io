@@ -1,0 +1,97 @@
+.meter {
+  position: fixed;
+  right: clamp(14px, 2.4vw, 28px);
+  bottom: clamp(14px, 2.4vw, 28px);
+  z-index: 50;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgb(19 19 21 / 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
+  transition:
+    box-shadow 0.4s,
+    border-color 0.4s;
+}
+
+.meter:hover {
+  border-color: var(--accent-line);
+}
+
+.meter svg {
+  position: absolute;
+  inset: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+}
+
+.meter circle {
+  fill: none;
+  stroke-width: 8;
+}
+
+.track {
+  stroke: rgb(255 255 255 / 0.08);
+}
+
+.progress {
+  stroke-linecap: butt;
+  transition: stroke-dasharray 0.1s linear;
+}
+
+.ticks {
+  stroke: rgb(19 19 21);
+  stroke-width: 9;
+}
+
+.value {
+  position: relative;
+  margin-top: -6px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  position: absolute;
+  bottom: 13px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.full {
+  border-color: var(--accent-line);
+  box-shadow:
+    0 0 0 4px rgb(255 107 53 / 0.12),
+    0 0 32px rgb(255 107 53 / 0.45);
+}
+
+.full .value {
+  color: var(--accent-hot);
+}
+
+@media (max-width: 640px) {
+  .meter {
+    width: 64px;
+    height: 64px;
+  }
+
+  .value {
+    font-size: 17px;
+  }
+
+  .label {
+    bottom: 10px;
+    font-size: 7px;
+  }
+}

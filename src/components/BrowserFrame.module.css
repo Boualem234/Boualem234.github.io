@@ -1,0 +1,66 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1d1d20;
+  border: 1px solid var(--line-strong);
+  box-shadow:
+    0 30px 60px -20px rgb(0 0 0 / 0.6),
+    0 0 0 1px rgb(0 0 0 / 0.4);
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.14);
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 60%;
+  padding: 3px 14px;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.05);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.screen {
+  position: relative;
+  flex: 1;
+  /* Format de l'écran (ex. 16 / 9) défini par le parent ; sinon taille naturelle de l'image */
+  aspect-ratio: var(--screen-ratio, auto);
+  min-height: 0;
+  background: #f6f7f9;
+  overflow: hidden;
+}
+
+.screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}

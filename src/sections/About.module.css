@@ -1,0 +1,67 @@
+.about {
+  padding-top: clamp(72px, 10vw, 128px);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rule {
+  width: 36px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.statement {
+  max-width: 1120px;
+}
+
+.quote {
+  position: relative;
+  max-width: 760px;
+  margin-top: clamp(56px, 8vw, 104px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 0% 0%, rgb(255 107 53 / 0.16), transparent 55%),
+    var(--bg-elev);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.quote blockquote p {
+  position: relative;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.quoteRule {
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+
