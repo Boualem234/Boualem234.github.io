@@ -7,7 +7,7 @@ import "./styles/global.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/portfolio">
+    <BrowserRouter>
       <I18nProvider>
         <App />
       </I18nProvider>

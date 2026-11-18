@@ -4,7 +4,7 @@
 
 Développeur Full Stack · .NET · Python / Django
 
-**[boualem234.github.io/portfolio](https://boualem234.github.io/portfolio/)**
+**[boualem234.github.io](https://boualem234.github.io)**
 
 <img src="public/og-image.png" alt="Aperçu du portfolio" width="720" />
 

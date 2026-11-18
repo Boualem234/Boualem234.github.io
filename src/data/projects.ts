@@ -30,8 +30,8 @@ export type Project = {
 /** Dimensions réelles des captures (générées à la conversion WebP). */
 function shots(slug: string, sizes: [number, number][], captions: Localized[]): ProjectImage[] {
   return sizes.map(([width, height], i) => ({
-    src: `${import.meta.env.BASE_URL}images/projects/${slug}/${i + 1}.webp`,
-    srcSm: `${import.meta.env.BASE_URL}images/projects/${slug}/${i + 1}-sm.webp`,
+    src: `/images/projects/${slug}/${i + 1}.webp`,
+    srcSm: `/images/projects/${slug}/${i + 1}-sm.webp`,
     width,
     height,
     caption: captions[i] ?? { fr: "", en: "" },

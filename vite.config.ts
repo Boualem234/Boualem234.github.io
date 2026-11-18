@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Site de projet GitHub Pages (boualem234.github.io/portfolio) : servi dans un sous-chemin.
+// Site utilisateur GitHub Pages (boualem234.github.io) : servi à la racine.
 export default defineConfig({
   plugins: [react()],
-  base: "/portfolio/",
+  base: "/",
   build: {
     rolldownOptions: {
       output: {

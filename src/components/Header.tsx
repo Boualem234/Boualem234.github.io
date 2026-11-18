@@ -115,7 +115,7 @@ export default function Header() {
               {SECTIONS.map((id) => (
                 <li key={id}>
                   <a
-                    href={`${import.meta.env.BASE_URL}#${id}`}
+                    href={`/#${id}`}
                     onClick={(e) => goTo(e, id)}
                     className={current === id ? styles.active : undefined}
                     aria-current={current === id ? "location" : undefined}
@@ -136,7 +136,7 @@ export default function Header() {
               <TbDownload aria-hidden="true" />
               <Stable text={both((u) => u.header.cv)} />
             </a>
-            <a className={styles.contact} href={`${import.meta.env.BASE_URL}#contact`} onClick={(e) => goTo(e, "contact")}>
+            <a className={styles.contact} href="/#contact" onClick={(e) => goTo(e, "contact")}>
               <Stable text={both((u) => u.header.contact)} />
             </a>
             <button
@@ -172,7 +172,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 + i * 0.05, duration: 0.4 }}
                   >
-                    <a href={`${import.meta.env.BASE_URL}#${id}`} onClick={(e) => goTo(e, id)}>
+                    <a href={`/#${id}`} onClick={(e) => goTo(e, id)}>
                       <span className={styles.mobileIndex}>0{i + 1}</span>
                       <Stable text={labels[id]} />
                     </a>

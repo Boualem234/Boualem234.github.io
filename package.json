@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Portfolio de Boualem El Guendouz — Développeur Full Stack (.NET · Python/Django)",
   "author": "Boualem El Guendouz",
-  "homepage": "https://boualem234.github.io/portfolio/",
+  "homepage": "https://boualem234.github.io",
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
